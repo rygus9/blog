@@ -1,3 +1,81 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "plugins": ["unused-imports", "simple-import-sort"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "rules": {
+    "consistent-return": "off",
+    "no-duplicate-case": "error",
+    "no-unreachable": "error",
+
+    // 어쩔 수 없는 경우(nextJS) 제외 named export로 통일
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
+
+    "react/jsx-props-no-spreading": "off",
+    "react/react-in-jsx-scope": "off",
+    // aribnb의 느슨한 self-closing-comp 룰 강화
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
+    /*
+     * 컴포넌트도 arrow-function 사용 장려 ( forwardRef + 그냥 function의 이상 행동 etc... )
+     * https://www.youtube.com/watch?v=LPEwb5plEoU&t=352s 설득력 있다.
+     */
+    "react/function-component-definition": ["error", {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+
+    "@typescript-eslint/no-use-before-define": "off",
+
+    // 이거 해결 못한 라이브러리(react-hook-form) 존재해서 룰 OFF.
+    "@typescript-eslint/no-misused-promises": ["error", {
+      "checksVoidReturn": {
+        "attributes": false
+      }
+    }],
+    /*
+     * airbnb 컨벤션에서 규칙 완화
+     * 변수 snake_case는 서버값 그대로 받기, 타입 UPPER_CASE는 enum 대비
+     */
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE", "snake_case"]
+      },
+      {
+        "selector": "function",
+        "format": ["camelCase", "PascalCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase", "UPPER_CASE"]
+      }
+    ],
+
+    "unused-imports/no-unused-imports": "error",
+    "simple-import-sort/imports": "error"
+  },
+  // name export 해제 목록은 nextJS 관련 파일 뿐이다.
+  "overrides": [
+    {
+      "files": ["**/*(page|layout|error|template|loading|not-found).tsx", "tailwind.config.ts"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["*.js", "tsconfig.json"]
 }
