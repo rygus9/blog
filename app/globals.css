@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root { 
+    --color-body: 234 234 234;
+    --color-text: 23 23 23;
+  }
+
+  :root[class~="dark"] {
+    --color-body: 23 23 23;
+    --color-text: 234 234 234;
+  }
+
+  body {
+    background: rgb(var(--color-body));
+    color: rgb(var(--color-text));
+  }
+}
