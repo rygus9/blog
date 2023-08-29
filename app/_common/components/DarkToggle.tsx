@@ -1,5 +1,6 @@
 "use client";
 
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useState } from "react";
 
@@ -27,9 +28,10 @@ export const DarkToggle = () => {
         "after:absolute after:w-7 after:h-7 after:rounded-full after:top-1 after:left-1 after:shadow-[0px_2px_4px_rgba(0,0,0,0.2)]",
         theme === "dark"
           ? "bg-[#202020] after:left-[36px] after:bg-[#454545]"
-          : "bg-[#dedede] after:left-1 after:bg-[#dedede]",
+          : "bg-[#dedede] after:left-1 after:bg-[#efefef]",
       )}
     >
+      <MoonIcon className="absolute top-2 left-[40px] z-10 w-5 h-5" />
       <input
         type="checkbox"
         id="dark-toggle"
@@ -37,6 +39,7 @@ export const DarkToggle = () => {
         onChange={handleToggle}
         className="hidden"
       />
+      <SunIcon className="absolute top-2 left-2 z-10 w-5 h-5" />
     </label>
   );
 };
