@@ -1,17 +1,22 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { classNames } from "../utils/classNames";
 
 export const DarkToggle = () => {
+  const [mount, setMount] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
   const handleToggle = useCallback(
     () => (theme === "light" ? setTheme("dark") : setTheme("light")),
     [setTheme, theme],
   );
+
+  useEffect(() => setMount(true), [setMount]);
+
+  if (!mount) return null;
 
   return (
     <label
