@@ -38,6 +38,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           arita.variable,
           notoSansKr.variable,
           blackHanSans.variable,
+          "font-noto",
         )}
       >
         <Providers>{children}</Providers>

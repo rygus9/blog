@@ -1,23 +1,33 @@
+import Link from "next/link";
+
 import { DarkToggle } from "./_common/components/DarkToggle";
 
 const Page = () => {
   return (
-    <main className="pt-16">
-      <div className="w-[800px] m-auto pb-10">
+    <main className="pt-12 sm:pt-16 max-w-3xl m-auto px-4">
+      <div className="flex items-center justify-end h-[36px]">
         <DarkToggle />
       </div>
-      <p className="font-noto text-2xl w-[800px] m-auto">
-        안녕하세요 반갑습니다. hello
+      <h1 className="font-blackHan text-3xl pt-8 sm:pt-10">
+        안녕하세요. 구교현입니다.
+      </h1>
+      <p className="pt-5">
+        멋진 디자인과 인터렉션, 애니메이션으로 깔끔한 UI, UX를 구현하는데 흥미를
+        느낍니다. <br />
+        개발과 관련된 무언가를 깊게 공부하고 학습하는 과정 자체를 즐깁니다.
       </p>
-      <p className="font-blackHan text-3xl w-[800px] m-auto">
-        안녕하세요 반갑습니다. hello
-      </p>
-      <p className="font-arita text-2xl w-[800px] m-auto">
-        안녕하세요 반갑습니다. hello
-      </p>
-      <p className="font-arita text-2xl w-[800px] m-auto font-extrabold">
-        안녕하세요 반갑습니다. hello
-      </p>
+      <div className="pt-3 space-x-4">
+        <Link href="/resume">
+          <span className="font-arita underline decoration-1 decoration-wavy underline-offset-4">
+            구교현의 이력서
+          </span>
+        </Link>
+        <Link href="https://github.com/rygus9" target="_blank" rel="noreferrer">
+          <span className="font-arita underline decoration-1 decoration-wavy underline-offset-4">
+            GITHUB
+          </span>
+        </Link>
+      </div>
     </main>
   );
 };
