@@ -5,7 +5,9 @@ import { DarkToggle } from "./_common/components/DarkToggle";
 const Page = () => {
   return (
     <main className="pt-12 sm:pt-16 max-w-3xl m-auto px-4">
-      <DarkToggle />
+      <div className="flex items-center justify-end h-[36px]">
+        <DarkToggle />
+      </div>
       <h1 className="font-blackHan text-3xl pt-8 sm:pt-10">
         안녕하세요. 구교현입니다.
       </h1>
