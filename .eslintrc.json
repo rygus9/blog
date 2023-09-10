@@ -36,6 +36,8 @@
       "namedComponents": "arrow-function",
       "unnamedComponents": "arrow-function"
     }],
+    // defaultprops는 쓰지 않는다.
+    "react/require-default-props": "off",
 
     "@typescript-eslint/no-use-before-define": "off",
 
