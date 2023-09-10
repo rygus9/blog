@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Black_Han_Sans, Noto_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 
+import { Header } from "./_common/components/Header";
 import { Providers } from "./_common/Providers";
 import { classNames } from "./_common/utils/classNames";
 
@@ -41,7 +42,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           "font-noto",
         )}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          <div className="pt-16">{children}</div>
+        </Providers>
       </body>
     </html>
   );
