@@ -27,11 +27,11 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed z-40 top-0 w-full h-16 border-b border-[#dedede] backdrop-blur-sm bg-[#EFEFEF] bg-opacity-90">
+      <header className="fixed z-40 top-0 w-full h-16 border-b border-back-em backdrop-blur-sm bg-back bg-opacity-90">
         <div className="max-w-5xl w-full h-full m-auto px-6 flex items-center">
           <h1
             className={classNames(
-              "text-2xl font-bold text-[#121212 flex-1 tracking-wide",
+              "text-2xl font-bold text-txt-700 flex-1 tracking-wide",
               "sm:flex-none sm:mr-12",
             )}
           >
@@ -39,7 +39,7 @@ export const Header = () => {
           </h1>
           <nav
             className={classNames(
-              "hidden text-[#454545]",
+              "hidden text-txt-300",
               "sm:flex-1 sm:flex sm:items-center sm:space-x-6",
             )}
           >
@@ -71,7 +71,7 @@ export const Header = () => {
       {!isClose && (
         <nav
           className={classNames(
-            "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-[#EFEFEF] text-[#454545]",
+            "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-back text-txt-300",
             "sm:hidden",
           )}
         >
