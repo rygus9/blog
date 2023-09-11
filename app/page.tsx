@@ -4,9 +4,9 @@ import { PropsWithChildren } from "react";
 
 const Page = () => {
   return (
-    <main className="py-12 sm:py-40 max-w-2xl m-auto px-4">
+    <main className="py-10 sm:py-14 max-w-2xl m-auto px-4">
       <section className="mt-3 mb-6">
-        <h1 className="font-blackHan text-3xl underline underline-offset-4">
+        <h1 className="font-blackHan text-[1.75rem] sm:text-3xl underline underline-offset-4">
           안녕하세요. 구교현입니다.
         </h1>
         <p className="pt-4 text-[#343434]">

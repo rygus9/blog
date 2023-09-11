@@ -39,7 +39,7 @@ export const Header = () => {
           </h1>
           <nav
             className={classNames(
-              "hidden",
+              "hidden text-[#454545]",
               "sm:flex-1 sm:flex sm:items-center sm:space-x-6",
             )}
           >
@@ -71,7 +71,7 @@ export const Header = () => {
       {!isClose && (
         <nav
           className={classNames(
-            "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-[#EFEFEF]",
+            "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-[#EFEFEF] text-[#454545]",
             "sm:hidden",
           )}
         >
