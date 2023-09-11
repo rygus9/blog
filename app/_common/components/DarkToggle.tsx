@@ -6,7 +6,11 @@ import { useCallback, useEffect, useState } from "react";
 
 import { classNames } from "../utils/classNames";
 
-export const DarkToggle = () => {
+interface DarkToggleProps {
+  className?: string;
+}
+
+export const DarkToggle = ({ className = "" }: DarkToggleProps) => {
   const [mount, setMount] = useState<boolean>(false);
   const { theme, setTheme } = useTheme();
 
@@ -29,6 +33,7 @@ export const DarkToggle = () => {
         theme === "dark"
           ? "bg-[#202020] after:left-[36px] after:bg-[#454545]"
           : "bg-[#dedede] after:left-1 after:bg-[#efefef]",
+        className,
       )}
     >
       <MoonIcon className="absolute top-2 left-[40px] z-10 w-5 h-5" />
