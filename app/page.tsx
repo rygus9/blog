@@ -6,10 +6,10 @@ const Page = () => {
   return (
     <main className="py-10 sm:py-14 max-w-2xl m-auto px-4">
       <section className="mt-3 mb-6">
-        <h1 className="font-blackHan text-[1.75rem] sm:text-3xl underline underline-offset-4">
+        <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl underline underline-offset-4">
           안녕하세요. 구교현입니다.
         </h1>
-        <p className="pt-4 text-[#343434]">
+        <p className="pt-4">
           멋진 디자인과 인터렉션, 애니메이션으로 깔끔한 UI, UX를 구현하는데
           흥미를 느낍니다. <br />
           개발과 관련된 무언가를 깊게 공부하고 학습하는 과정 자체를 즐깁니다.
@@ -31,45 +31,45 @@ const Page = () => {
           </Link>
         </p>
       </section>
-      <hr className="border-[#dedede]" />
+      <hr className="border-back-em" />
       <section className="my-4">
         <Category href="/record">나의 일기</Category>
         <div className="mt-2">
-          <p className="py-1 text-[#343434]">
+          <p className="py-1">
             요새 약간 프론트엔드에 대한 열망이 줄어들었다. 인터렉티브...
             <span className="ml-2">At 23.09.02</span>
           </p>
         </div>
         <MoreLink href="/record" />
       </section>
-      <hr className="border-[#dedede]" />
+      <hr className="border-back-em" />
       <section className="my-4">
         <Category href="/note">정리 노트</Category>
-        <ul className="mt-2 text-[#343434] flex flex-wrap items-start">
+        <ul className="mt-2 flex flex-wrap items-start">
           <li className="w-[48%] p-2 pl-0">
-            <p className="text-[#565656] text-sm">2023 모음</p>
+            <p className="text-txt-300 text-sm">2023 모음</p>
             <h3>React 13 분석하기</h3>
           </li>
           <li className="w-[48%] p-2 pl-0">
-            <p className="text-[#565656] text-sm">블로그 개발기</p>
+            <p className="text-txt-300 text-sm">블로그 개발기</p>
             <h3>Notion API 연동하기</h3>
           </li>
           <li className="w-[48%] p-2 pl-0">
-            <p className="text-[#565656] text-sm">블로그 개발기</p>
+            <p className="text-txt-300 text-sm">블로그 개발기</p>
             <h3>디자인 구성, 블로그 구조 설계</h3>
           </li>
           <li className="w-[48%] p-2 pl-0">
-            <p className="text-[#565656] text-sm">블로그 개발기</p>
+            <p className="text-txt-300 text-sm">블로그 개발기</p>
             <h3>디자인 구성, 블로그 구조 설계</h3>
           </li>
         </ul>
         <MoreLink href="/note" />
       </section>
-      <hr className="border-[#dedede]" />
+      <hr className="border-back-em" />
       <section className="my-4">
         <Category href="/snippet">스니펫</Category>
 
-        <ul className="mt-2 text-[#343434] flex flex-wrap items-start">
+        <ul className="mt-2 flex flex-wrap items-start">
           <li className="w-[47%] p-1 pl-0">
             <span>[JS]</span> JSON 변환
           </li>
@@ -90,7 +90,7 @@ const Page = () => {
 };
 
 const Category = ({ href, children }: PropsWithChildren<{ href: string }>) => (
-  <h2 className="text-md text-[#787878] font-arita font-semibold">
+  <h2 className="text-md text-txt-300 font-arita font-semibold">
     <Link href={href} className="flex items-center justify-start">
       {children} <ChevronRightIcon className="w-4 h-4 stroke-2" />
     </Link>
@@ -99,7 +99,7 @@ const Category = ({ href, children }: PropsWithChildren<{ href: string }>) => (
 
 const MoreLink = ({ href }: { href: string }) => (
   <Link
-    className="inline-block mt-2 text-sm text-[#787878] font-arita"
+    className="inline-block mt-2 text-sm text-txt-300 font-arita"
     href={href}
   >
     더보기...
