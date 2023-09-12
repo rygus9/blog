@@ -2,11 +2,13 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
+import { notes, snippets } from "./_common/mock";
+
 const Page = () => {
   return (
     <main className="py-10 sm:py-14 max-w-2xl m-auto px-4">
       <section className="mt-3 mb-6">
-        <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl underline underline-offset-4">
+        <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
           안녕하세요. 구교현입니다.
         </h1>
         <p className="pt-4">
@@ -46,22 +48,9 @@ const Page = () => {
       <section className="my-4">
         <Category href="/note">정리 노트</Category>
         <ul className="mt-2 flex flex-wrap items-start">
-          <li className="w-[48%] p-2 pl-0">
-            <p className="text-txt-300 text-sm">2023 모음</p>
-            <h3>React 13 분석하기</h3>
-          </li>
-          <li className="w-[48%] p-2 pl-0">
-            <p className="text-txt-300 text-sm">블로그 개발기</p>
-            <h3>Notion API 연동하기</h3>
-          </li>
-          <li className="w-[48%] p-2 pl-0">
-            <p className="text-txt-300 text-sm">블로그 개발기</p>
-            <h3>디자인 구성, 블로그 구조 설계</h3>
-          </li>
-          <li className="w-[48%] p-2 pl-0">
-            <p className="text-txt-300 text-sm">블로그 개발기</p>
-            <h3>디자인 구성, 블로그 구조 설계</h3>
-          </li>
+          {notes.map((props) => (
+            <NoteItem {...props} />
+          ))}
         </ul>
         <MoreLink href="/note" />
       </section>
@@ -70,24 +59,57 @@ const Page = () => {
         <Category href="/snippet">스니펫</Category>
 
         <ul className="mt-2 flex flex-wrap items-start">
-          <li className="w-[47%] p-1 pl-0">
-            <span>[JS]</span> JSON 변환
-          </li>
-          <li className="w-[47%] p-1 pl-0">
-            <span>[JS]</span> 유용한 정규식 모음
-          </li>
-          <li className="w-[47%] p-1 pl-0">
-            <span>[CSS]</span> safe-area 대응
-          </li>
-          <li className="w-[47%] p-1 pl-0">
-            <span>[CSS]</span> 요소 중앙 정렬
-          </li>
+          {snippets.map((props) => (
+            <SnippetItem {...props} />
+          ))}
         </ul>
         <MoreLink href="/snippet" />
       </section>
     </main>
   );
 };
+
+const NoteItem = ({
+  categorySlug,
+  category,
+  titleSlug,
+  title,
+}: {
+  categorySlug: string;
+  category: string;
+  titleSlug: string;
+  title: string;
+}) => (
+  <li className="w-[48%] p-2 pl-0">
+    <p className="text-txt-300 text-sm cursor-pointer w-fit">
+      <Link href={`/note?category=${categorySlug}`}>{category}</Link>
+    </p>
+    <h3 className="cursor-pointer w-fit">
+      <Link href={`/note/${titleSlug}`}>{title}</Link>
+    </h3>
+  </li>
+);
+
+const SnippetItem = ({
+  categorySlug,
+  category,
+  titleSlug,
+  title,
+}: {
+  categorySlug: string;
+  category: string;
+  titleSlug: string;
+  title: string;
+}) => (
+  <li className="w-[47%] p-1 pl-0 space-x-1">
+    <span className="cursor-pointer">
+      <Link href={`/snippet?category=${categorySlug}`}> {category}</Link>
+    </span>
+    <span className="cursor-pointer">
+      <Link href={`/snippet/${titleSlug}`}>{title}</Link>
+    </span>
+  </li>
+);
 
 const Category = ({ href, children }: PropsWithChildren<{ href: string }>) => (
   <h2 className="text-md text-txt-300 font-arita font-semibold">
