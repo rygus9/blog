@@ -37,7 +37,7 @@ export const Header = () => {
           >
             DEVCO
           </h1>
-          <nav
+          <div
             className={classNames(
               "hidden text-txt-300",
               "sm:flex-1 sm:flex sm:items-center sm:space-x-6",
@@ -48,7 +48,7 @@ export const Header = () => {
                 {name}
               </Link>
             ))}
-          </nav>
+          </div>
           <DarkToggle className="hidden sm:block" />
           <Bars3Icon
             className={classNames(
@@ -69,7 +69,7 @@ export const Header = () => {
         </div>
       </header>
       {!isClose && (
-        <nav
+        <div
           className={classNames(
             "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-back text-txt-300",
             "sm:hidden",
@@ -85,7 +85,7 @@ export const Header = () => {
           <div className="flex justify-center items-center space-x-4">
             <DarkToggle />
           </div>
-        </nav>
+        </div>
       )}
     </>
   );
