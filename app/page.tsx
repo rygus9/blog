@@ -7,13 +7,11 @@ import { notes, snippets } from "./_common/mock";
 const Page = () => {
   return (
     <main className="py-10 sm:py-14 max-w-2xl m-auto px-4">
-      <section className="mt-3 mb-6">
+      <section>
         <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
           안녕하세요. 구교현입니다.
         </h1>
         <p className="pt-4">
-          멋진 디자인과 인터렉션, 애니메이션으로 깔끔한 UI, UX를 구현하는데
-          흥미를 느낍니다. <br />
           개발과 관련된 무언가를 깊게 공부하고 학습하는 과정 자체를 즐깁니다.
         </p>
         <p className="pt-3 space-x-4">
@@ -33,8 +31,8 @@ const Page = () => {
           </Link>
         </p>
       </section>
-      <hr className="border-back-em" />
-      <section className="my-4">
+      <hr className="border-back-em my-8" />
+      <section>
         <Category href="/record">나의 일기</Category>
         <div className="mt-2">
           <p className="py-1">
@@ -44,23 +42,23 @@ const Page = () => {
         </div>
         <MoreLink href="/record" />
       </section>
-      <hr className="border-back-em" />
-      <section className="my-4">
+      <hr className="border-back-em my-8" />
+      <section>
         <Category href="/note">정리 노트</Category>
-        <ul className="mt-2 flex flex-wrap items-start">
+        <ul className="mt-2 flex flex-wrap items-start justify-between">
           {notes.map((props) => (
-            <NoteItem {...props} />
+            <ContentItem type="note" {...props} />
           ))}
         </ul>
         <MoreLink href="/note" />
       </section>
-      <hr className="border-back-em" />
-      <section className="my-4">
+      <hr className="border-back-em my-8" />
+      <section>
         <Category href="/snippet">스니펫</Category>
 
-        <ul className="mt-2 flex flex-wrap items-start">
+        <ul className="mt-2 flex flex-wrap items-start justify-between">
           {snippets.map((props) => (
-            <SnippetItem {...props} />
+            <ContentItem type="snippet" {...props} />
           ))}
         </ul>
         <MoreLink href="/snippet" />
@@ -69,52 +67,33 @@ const Page = () => {
   );
 };
 
-const NoteItem = ({
+const ContentItem = ({
   categorySlug,
   category,
   titleSlug,
   title,
+  type,
 }: {
   categorySlug: string;
   category: string;
   titleSlug: string;
   title: string;
+  type: "note" | "snippet";
 }) => (
-  <li className="w-[48%] p-2 pl-0">
-    <p className="text-txt-300 text-sm cursor-pointer w-fit">
-      <Link href={`/note?category=${categorySlug}`}>{category}</Link>
+  <li className="w-[48%] py-4 space-y-2">
+    <p className="w-fit py-1 px-2 rounded-sm bg-back-em text-txt-300 text-sm cursor-pointer">
+      <Link href={`/${type}?category=${categorySlug}`}>{category}</Link>
     </p>
     <h3 className="cursor-pointer w-fit">
-      <Link href={`/note/${titleSlug}`}>{title}</Link>
+      <Link href={`/${type}/${titleSlug}`}>{title}</Link>
     </h3>
   </li>
 );
 
-const SnippetItem = ({
-  categorySlug,
-  category,
-  titleSlug,
-  title,
-}: {
-  categorySlug: string;
-  category: string;
-  titleSlug: string;
-  title: string;
-}) => (
-  <li className="w-[47%] p-1 pl-0 space-x-1">
-    <span className="cursor-pointer">
-      <Link href={`/snippet?category=${categorySlug}`}> {category}</Link>
-    </span>
-    <span className="cursor-pointer">
-      <Link href={`/snippet/${titleSlug}`}>{title}</Link>
-    </span>
-  </li>
-);
-
 const Category = ({ href, children }: PropsWithChildren<{ href: string }>) => (
-  <h2 className="text-md text-txt-300 font-arita font-semibold">
+  <h2 className="text-xl text-txt-700 font-arita font-bold">
     <Link href={href} className="flex items-center justify-start">
-      {children} <ChevronRightIcon className="w-4 h-4 stroke-2" />
+      {children} <ChevronRightIcon className="w-5 h-5 ml-1 stroke-2" />
     </Link>
   </h2>
 );
