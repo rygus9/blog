@@ -4,17 +4,23 @@
 
 @layer base {
   :root { 
-    --color-body: 234 234 234;
-    --color-text: 23 23 23;
+    --color-bg: 239, 239, 239;
+    --color-bg-em: 222, 222, 222;
+    --color-text-week: 103, 103, 103;
+    --color-text: 52, 52, 52;
+    --color-text-em: 18, 18, 18;
   }
 
   :root[class~="dark"] {
-    --color-body: 23 23 23;
-    --color-text: 234 234 234;
+    --color-bg: 18, 18, 18;
+    --color-bg-em: 52, 52, 52;
+    --color-text-week: 171, 171, 171;
+    --color-text: 205, 205, 205;
+    --color-text-em: 239, 239, 239;
   }
 
   body {
-    background: rgb(var(--color-body));
+    background: rgb(var(--color-bg));
     color: rgb(var(--color-text));
   }
 }
