@@ -7,6 +7,18 @@ export const categorys = [
     categorySlug: "blog",
     category: "블로그 개발기",
   },
+  {
+    categorySlug: "react",
+    category: "리액트",
+  },
+  {
+    categorySlug: "2022",
+    category: "2022 모음",
+  },
+  {
+    categorySlug: "backend",
+    category: "벡엔드",
+  },
 ];
 
 export const posts = [

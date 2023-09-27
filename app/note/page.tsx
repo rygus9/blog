@@ -14,14 +14,19 @@ const Page = ({
   searchParams: SearchParams;
 }) => {
   return (
-    <div className="relative max-w-2xl h-fit m-auto my-10 sm:my-14">
-      <main className="w-full px-2 min-h-[500px]">
+    <div className="relative max-w-2xl px-4 h-fit m-auto my-10 sm:my-14">
+      <main className="w-full min-h-[500px]">
         <header>
           <div className="relative">
-            <div className="absolute -left-40 top-0 w-40 h-full">
+            <div
+              className={classNames(
+                "hidden",
+                "lg:absolute lg:block lg:-left-40 lg:top-0 lg:w-40 lg:h-full",
+              )}
+            >
               <Link
                 href="/"
-                className="inline-flex items-center space-x-2 text-txt-300"
+                className="inline-flex items-center space-x-2 text-txt-300 hover:text-txt-700"
               >
                 <ArrowUturnLeftIcon className="w-4 h-4" />
                 <span> 홈으로</span>
@@ -37,7 +42,12 @@ const Page = ({
         </header>
         <hr className="border-back-em my-8" />
         <section className="relative">
-          <ul className="flex flex-col gap-4 absolute -left-40 top-1 w-40 h-full text-txt-300">
+          <ul
+            className={classNames(
+              "flex items-center gap-4 gap-y-2 text-txt-300 mb-6 flex-wrap text-sm",
+              "lg:flex-col lg:items-start lg:gap-y-4 lg:absolute lg:-left-40 lg:top-1 lg:w-40 lg:h-full",
+            )}
+          >
             <li className={classNames(!nowCategoy && "-order-1")}>
               <Link
                 href="/note"
@@ -63,7 +73,8 @@ const Page = ({
               </li>
             ))}
           </ul>
-          <ul className="space-y-8">
+          <hr className="border-back-em my-8 lg:hidden" />
+          <ul className="space-y-10">
             {posts.map(({ title, titleSlug, intro, createdAt }) => (
               <article>
                 <h3 className="text-lg text-txt-700">
