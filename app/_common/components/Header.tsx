@@ -35,7 +35,7 @@ export const Header = () => {
               "sm:flex-none sm:mr-12",
             )}
           >
-            DEVCO
+            <Link href="/">DEVCO</Link>
           </h1>
           <div
             className={classNames(
