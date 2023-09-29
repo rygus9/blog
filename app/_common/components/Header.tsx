@@ -3,7 +3,7 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { classNames } from "../utils/classNames";
 import { DarkToggle } from "./DarkToggle";
@@ -32,6 +32,10 @@ export const Header = () => {
 
   const nowSection = pathname.split("/")[1];
 
+  const onClose = useCallback(() => {
+    setIsClose(true);
+  }, []);
+
   return (
     <>
       <header className="fixed z-40 top-0 w-full h-16 border-b border-back-em backdrop-blur-sm bg-back bg-opacity-90">
@@ -42,7 +46,9 @@ export const Header = () => {
               "sm:flex-none sm:mr-12",
             )}
           >
-            <Link href="/">DEVCO</Link>
+            <Link href="/" onClick={onClose}>
+              DEVCO
+            </Link>
           </h1>
           <div
             className={classNames(
@@ -97,6 +103,7 @@ export const Header = () => {
                   "text-lg",
                   nowSection === section && "text-txt-500 font-semibold",
                 )}
+                onClick={onClose}
               >
                 {name}
               </Link>
