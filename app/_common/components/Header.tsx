@@ -2,6 +2,7 @@
 
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { classNames } from "../utils/classNames";
@@ -11,19 +12,25 @@ const path = [
   {
     name: "정리노트",
     href: "/note",
+    section: "note",
   },
   {
     name: "스니펫",
     href: "/snippet",
+    section: "snippet",
   },
   {
     name: "나의일기",
     href: "/record",
+    section: "record",
   },
 ];
 
 export const Header = () => {
   const [isClose, setIsClose] = useState(true);
+  const pathname = usePathname();
+
+  const nowSection = pathname.split("/")[1];
 
   return (
     <>
@@ -43,8 +50,14 @@ export const Header = () => {
               "sm:flex-1 sm:flex sm:items-center sm:space-x-6",
             )}
           >
-            {path.map(({ name, href }) => (
-              <Link href={href} key={name}>
+            {path.map(({ name, href, section }) => (
+              <Link
+                href={href}
+                key={name}
+                className={classNames(
+                  nowSection === section && "text-txt-500 font-semibold",
+                )}
+              >
                 {name}
               </Link>
             ))}
@@ -76,8 +89,15 @@ export const Header = () => {
           )}
         >
           <div className="flex flex-col items-start space-y-4 p-6">
-            {path.map(({ name, href }) => (
-              <Link href={href} key={name} className="text-lg">
+            {path.map(({ name, href, section }) => (
+              <Link
+                href={href}
+                key={name}
+                className={classNames(
+                  "text-lg",
+                  nowSection === section && "text-txt-500 font-semibold",
+                )}
+              >
                 {name}
               </Link>
             ))}
