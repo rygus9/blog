@@ -10,7 +10,7 @@ interface BlogListCardProps {
   categorySlug: string;
 }
 
-export const BlogListCard = ({
+export const NoteListCard = ({
   category,
   categorySlug,
   createdAt,

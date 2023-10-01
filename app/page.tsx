@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-import { BlogListCard } from "./_common/components/BlogListCard";
+import { NoteListCard } from "./_common/components/NoteListCard";
 import { notes } from "./_common/mock";
 
 const Page = () => {
@@ -48,7 +48,7 @@ const Page = () => {
         <Category href="/note">정리 노트</Category>
         <ul className="space-y-8 mt-6 mb-4">
           {notes.map((props) => (
-            <BlogListCard {...props} />
+            <NoteListCard {...props} />
           ))}
         </ul>
         <MoreLink href="/note" />

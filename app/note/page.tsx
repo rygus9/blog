@@ -1,7 +1,7 @@
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-import { BlogListCard } from "../_common/components/BlogListCard";
+import { NoteListCard } from "../_common/components/NoteListCard";
 import { classNames } from "../_common/utils/classNames";
 import { categorys, notes } from "./_common/mock";
 
@@ -77,7 +77,7 @@ const Page = ({
           <hr className="border-back-em my-8 lg:hidden" />
           <ul className="space-y-10">
             {notes.map((props) => (
-              <BlogListCard {...props} />
+              <NoteListCard {...props} />
             ))}
           </ul>
         </section>
