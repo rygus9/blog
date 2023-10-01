@@ -1,53 +1,34 @@
 export const notes = [
   {
+    categorySlug: "blog",
+    category: "블로그 개발기",
+    titleSlug: "notion-api",
+    title: "Notion API 연동하기",
+    intro: "Notion API를 사용해서 블로그를 개발하는 방법을 알려드립니다.",
+    createdAt: "2022-10-20",
+  },
+  {
     categorySlug: "2023",
     category: "2023 모음",
-    titleSlug: "react-13",
-    title: "React 13 분석하기",
+    titleSlug: "frontend-build",
+    title: "프론트엔드 개발 환경",
+    intro: "프론트엔드 개발 환경에 대한 전반적인 내용을 정리했습니다.",
+    createdAt: "2023-10-20",
   },
   {
     categorySlug: "blog",
     category: "블로그 개발기",
     titleSlug: "notion-api",
-    title: "Notion API 연동하기",
+    title: "Notion API 연동하기 조금 많이 긴 제목이라면 어떻게할까요?",
+    intro: "Notion API를 사용해서 블로그를 개발하는 방법을 알려드립니다.",
+    createdAt: "2022-10-20",
   },
   {
-    categorySlug: "blog",
-    category: "블로그 개발기",
-    titleSlug: "blog-design-structure",
-    title: "디자인 구성, 블로그 구조 설계",
-  },
-  {
-    categorySlug: "blog",
-    category: "블로그 개발기",
-    titleSlug: "next-13-app",
-    title: "NextJS 13 app 디렉토리 도입하기",
-  },
-];
-
-export const snippets = [
-  {
-    categorySlug: "js",
-    category: "JS",
-    titleSlug: "json",
-    title: "JSON 변환",
-  },
-  {
-    categorySlug: "js",
-    category: "JS",
-    titleSlug: "json",
-    title: "유용한 정규식 모음",
-  },
-  {
-    categorySlug: "css",
-    category: "CSS",
-    titleSlug: "safe-area",
-    title: "safe-area 대응",
-  },
-  {
-    categorySlug: "js",
-    category: "CSS",
-    titleSlug: "center-align",
-    title: "요소 중앙 정렬",
+    categorySlug: "2023",
+    category: "2023 모음",
+    titleSlug: "frontend-build",
+    title: "프론트엔드 개발 환경",
+    intro: "프론트엔드 개발 환경에 대한 전반적인 내용을 정리했습니다.",
+    createdAt: "2023-10-20",
   },
 ];
