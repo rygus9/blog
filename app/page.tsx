@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-import { notes, snippets } from "./_common/mock";
+import { notes } from "./_common/mock";
 
 const Page = () => {
   return (
@@ -51,17 +51,6 @@ const Page = () => {
           ))}
         </ul>
         <MoreLink href="/note" />
-      </section>
-      <hr className="border-back-em my-8" />
-      <section>
-        <Category href="/snippet">스니펫</Category>
-
-        <ul className="mt-2 flex flex-wrap items-start justify-between">
-          {snippets.map((props) => (
-            <ContentItem type="snippet" {...props} />
-          ))}
-        </ul>
-        <MoreLink href="/snippet" />
       </section>
     </main>
   );
