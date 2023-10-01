@@ -15,11 +15,6 @@ const path = [
     section: "note",
   },
   {
-    name: "스니펫",
-    href: "/snippet",
-    section: "snippet",
-  },
-  {
     name: "나의일기",
     href: "/record",
     section: "record",
