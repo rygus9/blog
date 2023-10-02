@@ -2,6 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
+import { Divider } from "./_common/components/Divider";
 import { NoteListCard } from "./_common/components/NoteListCard";
 import { notes } from "./_common/mock";
 
@@ -32,7 +33,7 @@ const Page = () => {
           </Link>
         </p>
       </section>
-      <hr className="border-back-em my-8" />
+      <Divider />
       <section>
         <Category href="/record">나의 일기</Category>
         <div className="mt-2">
@@ -43,7 +44,7 @@ const Page = () => {
         </div>
         <MoreLink href="/record" />
       </section>
-      <hr className="border-back-em my-8" />
+      <Divider />
       <section>
         <Category href="/note">정리 노트</Category>
         <ul className="space-y-8 mt-6 mb-4">

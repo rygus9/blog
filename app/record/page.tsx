@@ -5,6 +5,7 @@ import {
 } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
+import { Divider } from "../_common/components/Divider";
 import { classNames } from "../_common/utils/classNames";
 import { records } from "./_common/mock";
 
@@ -36,7 +37,7 @@ const Page = () => {
             개인적인 생각, 고민 등을 가볍게 적어두었습니다.
           </p>
         </header>
-        <hr className="border-back-em my-8" />
+        <Divider />
 
         <div className="divide-y divide-back-em">
           {records.map(({ content, createdAt, title }) => (
