@@ -1,9 +1,10 @@
 import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
+import { Divider } from "../_common/components/Divider";
 import { NoteListCard } from "../_common/components/NoteListCard";
+import { categorys, notes } from "../_common/mock";
 import { classNames } from "../_common/utils/classNames";
-import { categorys, notes } from "./_common/mock";
 
 interface SearchParams {
   category?: string;
@@ -41,7 +42,7 @@ const Page = ({
             공부 했던 내용이나 진행했던 프로젝트 등을 정리해두는 공간입니다.
           </p>
         </header>
-        <hr className="border-back-em my-8" />
+        <Divider />
         <section className="relative">
           <ul
             className={classNames(
