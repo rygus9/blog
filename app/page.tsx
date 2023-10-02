@@ -2,6 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
+import { NoteListCard } from "./_common/components/NoteListCard";
 import { notes } from "./_common/mock";
 
 const Page = () => {
@@ -45,9 +46,9 @@ const Page = () => {
       <hr className="border-back-em my-8" />
       <section>
         <Category href="/note">정리 노트</Category>
-        <ul className="mt-2 flex flex-wrap items-start justify-between">
+        <ul className="space-y-8 mt-6 mb-4">
           {notes.map((props) => (
-            <ContentItem type="note" {...props} />
+            <NoteListCard {...props} />
           ))}
         </ul>
         <MoreLink href="/note" />
@@ -55,29 +56,6 @@ const Page = () => {
     </main>
   );
 };
-
-const ContentItem = ({
-  categorySlug,
-  category,
-  titleSlug,
-  title,
-  type,
-}: {
-  categorySlug: string;
-  category: string;
-  titleSlug: string;
-  title: string;
-  type: "note" | "snippet";
-}) => (
-  <li className="w-[48%] py-4 space-y-2">
-    <p className="w-fit py-1 px-2 rounded-sm bg-back-em text-txt-300 text-sm cursor-pointer">
-      <Link href={`/${type}?category=${categorySlug}`}>{category}</Link>
-    </p>
-    <h3 className="cursor-pointer w-fit">
-      <Link href={`/${type}/${titleSlug}`}>{title}</Link>
-    </h3>
-  </li>
-);
 
 const Category = ({ href, children }: PropsWithChildren<{ href: string }>) => (
   <h2 className="text-xl text-txt-700 font-arita font-bold">

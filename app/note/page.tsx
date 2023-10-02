@@ -1,8 +1,9 @@
-import { ArrowUturnLeftIcon, CalendarIcon } from "@heroicons/react/20/solid";
+import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
+import { NoteListCard } from "../_common/components/NoteListCard";
 import { classNames } from "../_common/utils/classNames";
-import { categorys, posts } from "./_common/mock";
+import { categorys, notes } from "./_common/mock";
 
 interface SearchParams {
   category?: string;
@@ -75,19 +76,8 @@ const Page = ({
           </ul>
           <hr className="border-back-em my-8 lg:hidden" />
           <ul className="space-y-10">
-            {posts.map(({ title, titleSlug, intro, createdAt }) => (
-              <article>
-                <h3 className="text-lg text-txt-700">
-                  <Link href={`/note/${titleSlug}`} className="align-middle">
-                    {title}
-                  </Link>
-                  <span className="inline-flex ml-2 gap-1 items-center text-sm text-txt-300 align-middle">
-                    <CalendarIcon className="w-4 h-4" />
-                    <span className="font-arita">{createdAt}</span>
-                  </span>
-                </h3>
-                <p className="text-txt-300 mt-1">{intro}</p>
-              </article>
+            {notes.map((props) => (
+              <NoteListCard {...props} />
             ))}
           </ul>
         </section>
