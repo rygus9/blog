@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import { Divider } from "../_common/components/Divider";
 import { NoteListCard } from "../_common/components/NoteListCard";
+import { categorys, notes } from "../_common/mock";
 import { classNames } from "../_common/utils/classNames";
-import { categorys, notes } from "./_common/mock";
 
 interface SearchParams {
   category?: string;

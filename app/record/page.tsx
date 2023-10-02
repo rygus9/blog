@@ -6,8 +6,8 @@ import {
 import Link from "next/link";
 
 import { Divider } from "../_common/components/Divider";
+import { records } from "../_common/mock";
 import { classNames } from "../_common/utils/classNames";
-import { records } from "./_common/mock";
 
 const Page = () => {
   return (
