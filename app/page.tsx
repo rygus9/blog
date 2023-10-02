@@ -1,10 +1,10 @@
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { PropsWithChildren } from "react";
 
 import { Divider } from "./_common/components/Divider";
 import { NoteListCard } from "./_common/components/NoteListCard";
 import { notes } from "./_common/mock";
+import { MoreLink } from "./_only/components/MoreLink";
+import { SectionTitle } from "./_only/components/SectionTitle";
 
 const Page = () => {
   return (
@@ -35,7 +35,7 @@ const Page = () => {
       </section>
       <Divider />
       <section>
-        <Category href="/record">나의 일기</Category>
+        <SectionTitle href="/record">나의 일기</SectionTitle>
         <div className="mt-2">
           <p className="py-1">
             요새 약간 프론트엔드에 대한 열망이 줄어들었다. 인터렉티브...
@@ -46,8 +46,8 @@ const Page = () => {
       </section>
       <Divider />
       <section>
-        <Category href="/note">정리 노트</Category>
-        <ul className="space-y-8 mt-6 mb-4">
+        <SectionTitle href="/note">정리 노트</SectionTitle>
+        <ul className="space-y-8 mt-5 mb-4">
           {notes.map((props) => (
             <NoteListCard {...props} />
           ))}
@@ -57,22 +57,5 @@ const Page = () => {
     </main>
   );
 };
-
-const Category = ({ href, children }: PropsWithChildren<{ href: string }>) => (
-  <h2 className="text-xl text-txt-700 font-arita font-bold">
-    <Link href={href} className="flex items-center justify-start">
-      {children} <ChevronRightIcon className="w-5 h-5 ml-1 stroke-2" />
-    </Link>
-  </h2>
-);
-
-const MoreLink = ({ href }: { href: string }) => (
-  <Link
-    className="inline-block mt-2 text-sm text-txt-300 font-arita"
-    href={href}
-  >
-    더보기...
-  </Link>
-);
 
 export default Page;
