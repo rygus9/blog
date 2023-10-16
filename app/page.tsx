@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Divider } from "../common/components/Divider";
-import { NoteListCard } from "../common/components/NoteListCard";
+import { NoteListCard } from "./note/_feature/components/NoteListCard";
 import { notes } from "../common/mock";
 import { MoreLink } from "./_feature/components/MoreLink";
 import { SectionTitle } from "./_feature/components/SectionTitle";

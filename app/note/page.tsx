@@ -2,9 +2,9 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
 import { Divider } from "../../common/components/Divider";
-import { NoteListCard } from "../../common/components/NoteListCard";
 import { categorys, notes } from "../../common/mock";
 import { classNames } from "../../common/utils/classNames";
+import { NoteListCard } from "./_feature/components/NoteListCard";
 
 interface SearchParams {
   category?: string;
