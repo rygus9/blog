@@ -5,9 +5,9 @@ import {
 } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-import { Divider } from "../_common/components/Divider";
-import { records } from "../_common/mock";
-import { classNames } from "../_common/utils/classNames";
+import { Divider } from "../../common/components/Divider";
+import { records } from "../../common/mock";
+import { classNames } from "../../common/utils/classNames";
 
 const Page = () => {
   return (
