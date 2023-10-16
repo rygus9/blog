@@ -5,8 +5,8 @@ import { Black_Han_Sans, Noto_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 
 import { classNames } from "../common/utils/classNames";
-import { Header } from "./_only/components/Header";
-import { Providers } from "./_only/Providers";
+import { Header } from "./_feature/components/Header";
+import { Providers } from "./_feature/Providers";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],

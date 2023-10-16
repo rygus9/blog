@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Divider } from "../common/components/Divider";
 import { NoteListCard } from "../common/components/NoteListCard";
 import { notes } from "../common/mock";
-import { MoreLink } from "./_only/components/MoreLink";
-import { SectionTitle } from "./_only/components/SectionTitle";
+import { MoreLink } from "./_feature/components/MoreLink";
+import { SectionTitle } from "./_feature/components/SectionTitle";
 
 const Page = () => {
   return (
