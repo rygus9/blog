@@ -1,10 +1,30 @@
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import { PropsWithChildren } from "react";
 
 import { Divider } from "../common/components/Divider";
-import { NoteListCard } from "./note/_feature/components/NoteListCard";
 import { notes } from "../common/mock";
-import { MoreLink } from "./_feature/components/MoreLink";
-import { SectionTitle } from "./_feature/components/SectionTitle";
+import { NoteListCard } from "./note/_feature/components/NoteListCard";
+
+const SectionTitle = ({
+  href,
+  children,
+}: PropsWithChildren<{ href: string }>) => (
+  <h2 className="text-lg text-txt-700 font-arita font-bold">
+    <Link href={href} className="flex items-center justify-start">
+      {children} <ChevronRightIcon className="w-5 h-5 ml-1 stroke-2" />
+    </Link>
+  </h2>
+);
+
+const MoreLink = ({ href }: { href: string }) => (
+  <Link
+    className="inline-block mt-2 text-sm text-txt-300 font-arita"
+    href={href}
+  >
+    더보기...
+  </Link>
+);
 
 const Page = () => {
   return (
