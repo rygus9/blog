@@ -1,18 +1,36 @@
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import { PropsWithChildren } from "react";
 
 import { Divider } from "../common/components/Divider";
-import { NoteListCard } from "./note/_feature/components/NoteListCard";
 import { notes } from "../common/mock";
-import { MoreLink } from "./_feature/components/MoreLink";
-import { SectionTitle } from "./_feature/components/SectionTitle";
+import { Title } from "./_feature/components/Title";
+import { NoteListCard } from "./note/_feature/components/NoteListCard";
+
+const SectionTitle = ({
+  href,
+  children,
+}: PropsWithChildren<{ href: string }>) => (
+  <h2 className="text-lg text-txt-700 font-arita font-bold">
+    <Link href={href} className="flex items-center justify-start">
+      {children} <ChevronRightIcon className="w-5 h-5 ml-1 stroke-2" />
+    </Link>
+  </h2>
+);
+
+const MoreLink = ({ href }: { href: string }) => (
+  <Link
+    className="inline-block mt-2 text-sm text-txt-300 font-arita"
+    href={href}
+  >
+    더보기...
+  </Link>
+);
 
 const Page = () => {
   return (
-    <main className="py-10 sm:py-14 max-w-2xl m-auto px-4">
-      <section>
-        <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
-          안녕하세요. 구교현입니다.
-        </h1>
+    <main>
+      <Title title="안녕하세요. DEVCO입니다.">
         <p className="pt-4">
           개발과 관련된 무언가를 깊게 공부하고 학습하는 과정 자체를 즐깁니다.
         </p>
@@ -32,7 +50,7 @@ const Page = () => {
             </span>
           </Link>
         </p>
-      </section>
+      </Title>
       <Divider />
       <section>
         <SectionTitle href="/record">나의 일기</SectionTitle>

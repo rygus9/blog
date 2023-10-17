@@ -44,7 +44,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       >
         <Providers>
           <Header />
-          <div className="pt-16">{children}</div>
+          <div className="relative m-auto my-28 sm:my-32 px-4 max-w-2xl">
+            {children}
+          </div>
         </Providers>
       </body>
     </html>
