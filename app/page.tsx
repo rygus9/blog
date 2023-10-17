@@ -28,7 +28,7 @@ const MoreLink = ({ href }: { href: string }) => (
 
 const Page = () => {
   return (
-    <main className="py-10 sm:py-14 max-w-2xl m-auto px-4">
+    <main>
       <section>
         <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
           안녕하세요. 구교현입니다.
