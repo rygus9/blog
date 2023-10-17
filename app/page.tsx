@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 
 import { Divider } from "../common/components/Divider";
 import { notes } from "../common/mock";
+import { Title } from "./_feature/components/Title";
 import { NoteListCard } from "./note/_feature/components/NoteListCard";
 
 const SectionTitle = ({
@@ -29,10 +30,7 @@ const MoreLink = ({ href }: { href: string }) => (
 const Page = () => {
   return (
     <main>
-      <section>
-        <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
-          안녕하세요. 구교현입니다.
-        </h1>
+      <Title title="안녕하세요. DEVCO입니다.">
         <p className="pt-4">
           개발과 관련된 무언가를 깊게 공부하고 학습하는 과정 자체를 즐깁니다.
         </p>
@@ -52,7 +50,7 @@ const Page = () => {
             </span>
           </Link>
         </p>
-      </section>
+      </Title>
       <Divider />
       <section>
         <SectionTitle href="/record">나의 일기</SectionTitle>

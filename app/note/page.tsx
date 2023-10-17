@@ -1,9 +1,9 @@
-import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
 import { Divider } from "../../common/components/Divider";
 import { categorys, notes } from "../../common/mock";
 import { classNames } from "../../common/utils/classNames";
+import { Title } from "../_feature/components/Title";
 import { NoteListCard } from "./_feature/components/NoteListCard";
 
 interface SearchParams {
@@ -17,30 +17,11 @@ const Page = ({
 }) => {
   return (
     <main className="w-full min-h-[500px]">
-      <header>
-        <div className="relative">
-          <div
-            className={classNames(
-              "hidden",
-              "lg:absolute lg:block lg:-left-40 lg:top-0 lg:w-40 lg:h-full",
-            )}
-          >
-            <Link
-              href="/"
-              className="inline-flex items-center space-x-2 text-txt-300 hover:text-txt-700"
-            >
-              <ArrowUturnLeftIcon className="w-4 h-4" />
-              <span> 홈으로</span>
-            </Link>
-          </div>
-          <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
-            정리 노트
-          </h1>
-        </div>
+      <Title title="정리 노트" showHomeLink>
         <p className="mt-4">
           공부 했던 내용이나 진행했던 프로젝트 등을 정리해두는 공간입니다.
         </p>
-      </header>
+      </Title>
       <Divider />
       <section className="relative">
         <ul
