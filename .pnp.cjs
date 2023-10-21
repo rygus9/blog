@@ -4278,12 +4278,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["node-fetch", "virtual:3fe8a41a62727d3e61deda63c9c403b96c8dc178c902d518eec555686cb62c76e53736a07beaa59fdba7882a2b9cb48f80ff2aaf5b4113b99c7dcd761203e2b4#npm:2.7.0"],\
             ["@types/encoding", null],\
-            ["encoding", null],\
+            ["encoding", "npm:0.1.13"],\
             ["whatwg-url", "npm:5.0.0"]\
           ],\
           "packagePeers": [\
-            "@types/encoding",\
-            "encoding"\
+            "@types/encoding"\
           ],\
           "linkType": "HARD"\
         }]\
