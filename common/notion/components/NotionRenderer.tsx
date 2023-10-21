@@ -3,6 +3,7 @@ import {
   RichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import Link from "next/link";
+import { Fragment } from "react";
 
 import { notion } from "..";
 
@@ -32,25 +33,25 @@ const BlockRenderer = ({ block }: { block: BlockObjectResponse }) => {
   switch (type) {
     case "paragraph":
       return (
-        <p>
+        <p className="my-6 leading-7">
           <RichText texts={block.paragraph.rich_text} />
         </p>
       );
     case "heading_1":
       return (
-        <h1>
+        <h1 className="mt-14 mb-6 text-txt-700">
           <RichText texts={block.heading_1.rich_text} />
         </h1>
       );
     case "heading_2":
       return (
-        <h2>
+        <h2 className="mt-10 mb-6 text-2xl font-semibold text-txt-700">
           <RichText texts={block.heading_2.rich_text} />
         </h2>
       );
     case "heading_3":
       return (
-        <h3>
+        <h3 className="mt-8 mb-6 text-xl font-semibold text-txt-700">
           <RichText texts={block.heading_3.rich_text} />
         </h3>
       );
@@ -66,15 +67,39 @@ const RichText = ({ texts }: { texts: RichTextItemResponse[] }) => {
       plain_text,
       href,
     }) => {
-      let element: JSX.Element | string = plain_text;
+      const splitedText = plain_text.split("\n");
+      let element: JSX.Element = (
+        <>
+          {splitedText.map((line, idx) => (
+            <Fragment key={line}>
+              {line}
+              {idx < splitedText.length - 1 && <br />}
+            </Fragment>
+          ))}
+        </>
+      );
 
-      if (bold) element = <strong>{element}</strong>;
+      if (bold)
+        element = <strong className="font-bold text-txt-700">{element}</strong>;
       if (italic) element = <i>{element}</i>;
       if (strikethrough)
         element = <span className="line-through">{element}</span>;
-      if (underline) element = <span className="underline">{element}</span>;
-      if (code) element = <code>{element}</code>;
-      if (href) element = <Link href={href}>{element}</Link>;
+      if (underline) element = <span>{element}</span>;
+      if (code)
+        element = (
+          <code className="inline-block px-1.5 mx-0.5 bg-back-em rounded-md text-txt-700">
+            {element}
+          </code>
+        );
+      if (href)
+        element = (
+          <Link
+            href={href}
+            className="text-txt-300 underline underline-offset-4 hover:text-txt-500"
+          >
+            {element}
+          </Link>
+        );
 
       return element;
     },
