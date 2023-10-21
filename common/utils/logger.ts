@@ -4,8 +4,13 @@ import { resolve } from "path";
 import { inspect } from "util";
 
 export const log = (obj: any) => {
+  if (typeof window === "undefined") {
+    // eslint-disable-next-line no-console
+    console.log(inspect(obj, { depth: null, colors: true }));
+    return;
+  }
   // eslint-disable-next-line no-console
-  console.log(inspect(obj, { depth: null, colors: true }));
+  console.log(obj);
 };
 
 export const saveLog = ({
