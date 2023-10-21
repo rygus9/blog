@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync } from "fs";
 import { writeFile } from "fs/promises";
+import stringify from "json-stringify-pretty-compact";
 import { resolve } from "path";
 import { inspect } from "util";
 
@@ -22,8 +23,5 @@ export const saveObj = ({ obj, filename }: { obj: any; filename: string }) => {
     mkdirSync(tempDirectoryPath);
   }
 
-  writeFile(
-    resolve(tempDirectoryPath, `${filename}.${ext}`),
-    JSON.stringify(obj),
-  );
+  writeFile(resolve(tempDirectoryPath, `${filename}.${ext}`), stringify(obj));
 };
