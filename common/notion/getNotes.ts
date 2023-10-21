@@ -43,10 +43,3 @@ export const getNotes = memoize(async () => {
     };
   });
 });
-
-export const getNoteDatabase = memoize(async () => {
-  const result = await notion.databases.retrieve({
-    database_id: process.env.BLOG_NOTION_DB_ID,
-  });
-  return result;
-});

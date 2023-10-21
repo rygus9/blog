@@ -1,31 +1,3 @@
-export interface Category {
-  categorySlug: string;
-  category: string;
-}
-
-export const categorys = [
-  {
-    categorySlug: "2023",
-    category: "2023 모음",
-  },
-  {
-    categorySlug: "blog",
-    category: "블로그 개발기",
-  },
-  {
-    categorySlug: "react",
-    category: "리액트",
-  },
-  {
-    categorySlug: "2022",
-    category: "2022 모음",
-  },
-  {
-    categorySlug: "backend",
-    category: "벡엔드",
-  },
-];
-
 export const records = [
   {
     title: "벡엔드가 궁금해지고 있음",

@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-import { Category } from "@/common/mock";
 import { classNames } from "@/common/utils/classNames";
 
 interface CategoryNavProps {
-  categorys: Category[];
+  categorys: string[];
 }
 
 export const CategoryNav = ({ categorys }: CategoryNavProps) => {
@@ -17,7 +16,7 @@ export const CategoryNav = ({ categorys }: CategoryNavProps) => {
   return (
     <ul
       className={classNames(
-        "flex items-center gap-4 gap-y-2 text-txt-300 mb-6 flex-wrap text-sm",
+        "flex items-center gap-4 gap-y-2 text-txt-300 mb-6 flex-wrap text-base",
         "lg:flex-col lg:items-start lg:gap-y-4 lg:absolute lg:-left-40 lg:top-1 lg:w-40 lg:h-fit",
       )}
     >
@@ -29,15 +28,15 @@ export const CategoryNav = ({ categorys }: CategoryNavProps) => {
           전체 보기
         </Link>
       </li>
-      {categorys.map(({ category, categorySlug }) => (
+      {categorys.map((category) => (
         <li
-          className={classNames(nowCategory === categorySlug && "-order-1")}
-          key={categorySlug}
+          className={classNames(nowCategory === category && "-order-1")}
+          key={category}
         >
           <Link
-            href={`/note?category=${categorySlug}`}
+            href={`/note?category=${category}`}
             className={classNames(
-              nowCategory === categorySlug && "text-txt-700 text-lg",
+              nowCategory === category && "text-txt-700 text-lg",
             )}
           >
             {category}

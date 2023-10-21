@@ -1,14 +1,13 @@
+import { getCategories } from "@/common/notion/getCategories";
 import { getNotes } from "@/common/notion/getNotes";
-import { saveObj } from "@/common/utils/logger";
 
 import { Divider } from "../../common/components/Divider";
-import { categorys } from "../../common/mock";
 import { Title } from "../_feature/components/Title";
 import { CategoryNav } from "./_feature/components/CategoryNav";
 import { NoteList } from "./_feature/components/NoteList";
 
 const Page = async () => {
-  saveObj({ obj: await getNotes(), filename: "notes" });
+  const categorys = await getCategories();
 
   const notes = (await getNotes()).map(({ notionId, ...props }) => ({
     ...props,
