@@ -4,6 +4,16 @@ import { memoize } from "lodash-es";
 import { notion } from ".";
 import { plainText } from "./plainText";
 
+export interface NoteMeta {
+  notionId: string;
+  id: number;
+  short: string;
+  created: string;
+  slug: string;
+  category: string;
+  title: string;
+}
+
 export const getNotes = memoize(async () => {
   const notes = [];
   let next_cursor;

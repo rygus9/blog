@@ -2,12 +2,12 @@
 
 import { useSearchParams } from "next/navigation";
 
-import { Note } from "@/common/mock";
+import { NoteMeta } from "@/common/notion/getNotes";
 
 import { NoteListCard } from "./NoteListCard";
 
 interface NoteListProps {
-  notes: Note[];
+  notes: Omit<NoteMeta, "notionId">[];
 }
 
 export const NoteList = ({ notes }: NoteListProps) => {
@@ -17,11 +17,9 @@ export const NoteList = ({ notes }: NoteListProps) => {
   return (
     <ul className="space-y-10 min-h-[40px]">
       {notes
-        .filter((note) =>
-          nowCategory ? note.categorySlug === nowCategory : true,
-        )
-        .map((note: Note) => (
-          <NoteListCard {...note} key={note.titleSlug} />
+        .filter((note) => (nowCategory ? note.category === nowCategory : true))
+        .map((note) => (
+          <NoteListCard {...note} key={note.id} />
         ))}
     </ul>
   );
