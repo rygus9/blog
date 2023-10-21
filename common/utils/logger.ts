@@ -13,13 +13,8 @@ export const log = (obj: any) => {
   console.log(obj);
 };
 
-export const saveLog = ({
-  content,
-  filename,
-}: {
-  content: any;
-  filename: string;
-}) => {
+// !! For Debug
+export const saveObj = ({ obj, filename }: { obj: any; filename: string }) => {
   const ext = "json";
   const tempDirectoryPath = resolve(".", "temp");
 
@@ -29,6 +24,6 @@ export const saveLog = ({
 
   writeFile(
     resolve(tempDirectoryPath, `${filename}.${ext}`),
-    JSON.stringify(content),
+    JSON.stringify(obj),
   );
 };
