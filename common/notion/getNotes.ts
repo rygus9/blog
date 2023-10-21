@@ -2,7 +2,7 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { memoize } from "lodash-es";
 
 import { notion } from ".";
-import { plainText } from "./plainText";
+import { plainText } from "./util/plainText";
 
 export interface NoteMeta {
   notionId: string;
