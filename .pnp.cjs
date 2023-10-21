@@ -47,6 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:4.6.0"],\
             ["eslint-plugin-simple-import-sort", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.0.0"],\
             ["eslint-plugin-unused-imports", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:3.0.0"],\
+            ["json-stringify-pretty-compact", "npm:4.0.0"],\
             ["next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.4.19"],\
             ["next-themes", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:0.2.1"],\
             ["postcss", "npm:8.4.28"],\
@@ -1209,6 +1210,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:4.6.0"],\
             ["eslint-plugin-simple-import-sort", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:10.0.0"],\
             ["eslint-plugin-unused-imports", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:3.0.0"],\
+            ["json-stringify-pretty-compact", "npm:4.0.0"],\
             ["next", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:13.4.19"],\
             ["next-themes", "virtual:c6dcce817fa225290e033ab3df9d032741dc228bb28c9cbb4719875ef6095c1c8f4a1ecb6d1cce6f1119ad7c9bb93c31bc307a4e235fab5627d039ca42e55b65#npm:0.2.1"],\
             ["postcss", "npm:8.4.28"],\
@@ -3653,6 +3655,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/json-stable-stringify-without-jsonify-npm-1.0.1-b65772b28b-cff44156dd.zip/node_modules/json-stable-stringify-without-jsonify/",\
           "packageDependencies": [\
             ["json-stable-stringify-without-jsonify", "npm:1.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["json-stringify-pretty-compact", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/json-stringify-pretty-compact-npm-4.0.0-ad70a71e3b-a10d5c423e.zip/node_modules/json-stringify-pretty-compact/",\
+          "packageDependencies": [\
+            ["json-stringify-pretty-compact", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

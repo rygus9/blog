@@ -888,6 +888,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-simple-import-sort: ^10.0.0
     eslint-plugin-unused-imports: ^3.0.0
+    json-stringify-pretty-compact: ^4.0.0
     next: 13.4.19
     next-themes: ^0.2.1
     postcss: ^8.4.28
@@ -2895,6 +2896,13 @@ __metadata:
   version: 1.0.1
   resolution: "json-stable-stringify-without-jsonify@npm:1.0.1"
   checksum: cff44156ddce9c67c44386ad5cddf91925fe06b1d217f2da9c4910d01f358c6e3989c4d5a02683c7a5667f9727ff05831f7aa8ae66c8ff691c556f0884d49215
+  languageName: node
+  linkType: hard
+
+"json-stringify-pretty-compact@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "json-stringify-pretty-compact@npm:4.0.0"
+  checksum: a10d5c423e467872994a49c5c1b56b073f277ce02d899cf567fc625f3783b89406bee6408bfb3b4bdeeff509b6a562f5259227e26754a6186f721809ca895f0c
   languageName: node
   linkType: hard
 
