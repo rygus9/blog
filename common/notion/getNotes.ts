@@ -14,7 +14,7 @@ export interface NoteMeta {
   title: string;
 }
 
-export const getNotes = memoize(async () => {
+export const getNotes = memoize(async (): Promise<NoteMeta[]> => {
   const notes = [];
   let next_cursor;
 
