@@ -1,10 +1,18 @@
+import { getCategories } from "@/common/notion/getCategories";
+import { getNotes } from "@/common/notion/getNotes";
+
 import { Divider } from "../../common/components/Divider";
-import { categorys, notes } from "../../common/mock";
 import { Title } from "../_feature/components/Title";
 import { CategoryNav } from "./_feature/components/CategoryNav";
 import { NoteList } from "./_feature/components/NoteList";
 
-const Page = () => {
+const Page = async () => {
+  const categorys = await getCategories();
+
+  const notes = (await getNotes()).map(({ notionId, ...props }) => ({
+    ...props,
+  }));
+
   return (
     <main className="w-full min-h-[500px]">
       <Title title="정리 노트" showHomeLink>
