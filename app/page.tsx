@@ -2,8 +2,9 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
+import { getNotes } from "@/common/notion/getNotes";
+
 import { Divider } from "../common/components/Divider";
-import { notes } from "../common/mock";
 import { Title } from "./_feature/components/Title";
 import { NoteListCard } from "./note/_feature/components/NoteListCard";
 
@@ -27,7 +28,9 @@ const MoreLink = ({ href }: { href: string }) => (
   </Link>
 );
 
-const Page = () => {
+const Page = async () => {
+  const notes = await getNotes();
+
   return (
     <main>
       <Title title="안녕하세요. DEVCO입니다.">
@@ -67,7 +70,7 @@ const Page = () => {
         <SectionTitle href="/note">정리 노트</SectionTitle>
         <ul className="space-y-8 mt-5 mb-4">
           {notes.map((props) => (
-            <NoteListCard {...props} />
+            <NoteListCard {...props} key={props.id} />
           ))}
         </ul>
         <MoreLink href="/note" />
