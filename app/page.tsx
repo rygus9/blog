@@ -1,8 +1,9 @@
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { CalendarIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
 import { getNotes } from "@/common/notion/getNotes";
+import { getRecords } from "@/common/notion/getRecords";
 
 import { Divider } from "../common/components/Divider";
 import { Title } from "./_feature/components/Title";
@@ -30,6 +31,10 @@ const MoreLink = ({ href }: { href: string }) => (
 
 const Page = async () => {
   const notes = await getNotes();
+  const records = await getRecords();
+  const { content, created } = records[0];
+  const truncatedContent =
+    content.length < 100 ? content : `${content.substring(0, 100)}...`;
 
   return (
     <main>
@@ -57,11 +62,12 @@ const Page = async () => {
       <Divider />
       <section>
         <SectionTitle href="/record">나의 일기</SectionTitle>
-        <div className="mt-2">
-          <p className="py-1">
-            요새 약간 프론트엔드에 대한 열망이 줄어들었다. 인터렉티브...
-            <span className="ml-2">At 23.09.02</span>
-          </p>
+        <div className="my-3">
+          <span className="inline-flex gap-1 items-center text-txt-300 align-middle">
+            <CalendarIcon className="w-4 h-4" />
+            <span className="font-arita">{created}</span>
+          </span>
+          <p className="pt-1">{truncatedContent}</p>
         </div>
         <MoreLink href="/record" />
       </section>

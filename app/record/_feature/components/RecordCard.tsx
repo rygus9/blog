@@ -1,21 +1,18 @@
 import { CalendarIcon, LinkIcon } from "@heroicons/react/20/solid";
 
+import { RecordMeta } from "@/common/notion/getRecords";
 import { classNames } from "@/common/utils/classNames";
 
-interface RecordCardProps {
-  content: string;
-  createdAt: string;
-  title: string;
-}
+interface RecordCardProps extends Omit<RecordMeta, "id"> {}
 
-export const RecordCard = ({ content, createdAt, title }: RecordCardProps) => (
+export const RecordCard = ({ content, created, title }: RecordCardProps) => (
   <article className="py-8 first:pt-0">
     <h2
       className="text-[22px] text-txt-500 font-semibold scroll-mt-20"
-      id={createdAt}
+      id={created}
     >
       <a
-        href={`#${createdAt}`}
+        href={`#${created}`}
         className={classNames(
           "flex items-center justify-start gap-1",
           "hover:text-txt-300",
@@ -26,11 +23,8 @@ export const RecordCard = ({ content, createdAt, title }: RecordCardProps) => (
     </h2>
     <span className="inline-flex gap-1 items-center text-sm text-txt-300 align-middle mt-1">
       <CalendarIcon className="w-4 h-4" />
-      <span className="font-arita">{createdAt}</span>
+      <span className="font-arita">{created}</span>
     </span>
-    <div
-      dangerouslySetInnerHTML={{ __html: content }}
-      className="mt-6 space-y-4"
-    />
+    <div className="mt-4 space-y-4">{content}</div>
   </article>
 );
