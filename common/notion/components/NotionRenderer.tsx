@@ -1,5 +1,6 @@
 import {
   BlockObjectResponse,
+  PartialBlockObjectResponse,
   RichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import Link from "next/link";
@@ -9,22 +10,23 @@ import { notion } from "..";
 
 export const BlocksRenderer = async ({ block_id }: { block_id: string }) => {
   let next_cursor;
-  const elements: (JSX.Element | string)[] = [];
+  const blocks: (BlockObjectResponse | PartialBlockObjectResponse)[] = [];
   do {
     // eslint-disable-next-line no-await-in-loop
     const result = await notion.blocks.children.list({
       block_id,
       start_cursor: next_cursor ?? undefined,
     });
-    const blocks = result.results;
-    elements.push(
-      ...blocks.map((block) => (
-        <BlockRenderer block={block as BlockObjectResponse} />
-      )),
-    );
+    blocks.push(...result.results);
   } while (next_cursor);
 
-  return <>{elements.map((element) => element)}</>;
+  return (
+    <>
+      {blocks.map((block) => (
+        <BlockRenderer block={block as BlockObjectResponse} />
+      ))}
+    </>
+  );
 };
 
 const BlockRenderer = ({ block }: { block: BlockObjectResponse }) => {
@@ -54,6 +56,12 @@ const BlockRenderer = ({ block }: { block: BlockObjectResponse }) => {
         <h3 className="mt-8 mb-6 text-xl font-semibold text-txt-700">
           <RichText texts={block.heading_3.rich_text} />
         </h3>
+      );
+    case "quote":
+      return (
+        <div className="border-l-4 border-txt-500 px-4 py-2 bg-back-em bg-opacity-60 leading-7">
+          <RichText texts={block.quote.rich_text} />
+        </div>
       );
     default:
       return <p />;
