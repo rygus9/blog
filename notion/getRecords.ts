@@ -1,8 +1,8 @@
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { memoize } from "lodash-es";
 
-import { plainText } from "./util/plainText";
 import { notion } from ".";
+import { plainText } from "./util/plainText";
 
 export interface RecordMeta {
   id: number;
