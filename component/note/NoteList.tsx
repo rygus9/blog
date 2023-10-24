@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 
-import { NoteMeta } from "@/common/notion/getNotes";
+import { NoteMeta } from "@/notion/server/getNotes";
 
 import { NoteListCard } from "./NoteListCard";
 

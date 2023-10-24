@@ -2,12 +2,12 @@ import { CalendarIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-import { getNotes } from "@/common/notion/getNotes";
-import { getRecords } from "@/common/notion/getRecords";
+import { getNotes } from "@/notion/server/getNotes";
+import { getRecords } from "@/notion/server/getRecords";
 
-import { Divider } from "../common/components/Divider";
-import { Title } from "./_feature/components/Title";
-import { NoteListCard } from "./note/_feature/components/NoteListCard";
+import { Divider } from "../component/common/Divider";
+import { Title } from "../component/common/Title";
+import { NoteListCard } from "../component/note/NoteListCard";
 
 const SectionTitle = ({
   href,

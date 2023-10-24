@@ -4,9 +4,10 @@ import type { Metadata } from "next";
 import { Black_Han_Sans, Noto_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 
-import { classNames } from "../common/utils/classNames";
-import { Header } from "./_feature/components/Header";
-import { Providers } from "./_feature/Providers";
+import { RootProvider } from "@/component/RootProvider";
+
+import { Header } from "../component/Header";
+import { classNames } from "../util/classNames";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ const blackHanSans = Black_Han_Sans({
 });
 
 const arita = localFont({
-  src: "./fonts/Arita-dotum-Medium.woff",
+  src: "./font/Arita-dotum-Medium.woff",
   display: "swap",
   variable: "--arita",
 });
@@ -42,12 +43,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           "font-noto",
         )}
       >
-        <Providers>
+        <RootProvider>
           <Header />
           <div className="relative m-auto my-28 sm:my-32 px-4 max-w-2xl">
             {children}
           </div>
-        </Providers>
+        </RootProvider>
       </body>
     </html>
   );

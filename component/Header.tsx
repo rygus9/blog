@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 
-import { classNames } from "../../../common/utils/classNames";
+import { classNames } from "../util/classNames";
 import { DarkToggle } from "./DarkToggle";
 
 const path = [

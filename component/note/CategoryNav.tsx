@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-import { classNames } from "@/common/utils/classNames";
+import { classNames } from "@/util/classNames";
 
 interface CategoryNavProps {
   categorys: string[];
