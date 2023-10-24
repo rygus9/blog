@@ -1,8 +1,8 @@
 import { InferGetStaticPropsType } from "next";
 
+import { getNote } from "@/notion/server/getNote";
+import { getNotes } from "@/notion/server/getNotes";
 import { BlocksRenderer } from "@/notion/components/NotionRenderer";
-import { getNote } from "@/notion/getNote";
-import { getNotes } from "@/notion/getNotes";
 
 export const generateStaticParams = async () => {
   const notes = await getNotes();

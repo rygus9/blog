@@ -1,5 +1,5 @@
-import { getCategories } from "@/notion/getCategories";
-import { getNotes } from "@/notion/getNotes";
+import { getCategories } from "@/notion/server/getCategories";
+import { getNotes } from "@/notion/server/getNotes";
 
 import { Divider } from "../../components/common/Divider";
 import { CategoryNav } from "../../components/note/CategoryNav";

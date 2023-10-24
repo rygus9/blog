@@ -1,4 +1,4 @@
-import { getRecords } from "@/notion/getRecords";
+import { getRecords } from "@/notion/server/getRecords";
 
 import { Divider } from "../../components/common/Divider";
 import { RecordCard } from "../../components/record/RecordCard";

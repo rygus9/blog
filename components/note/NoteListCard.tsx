@@ -1,7 +1,7 @@
 import { CalendarIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 
-import { NoteMeta } from "@/notion/getNotes";
+import { NoteMeta } from "@/notion/server/getNotes";
 
 type NoteListCardProps = Omit<NoteMeta, "id" | "notionId">;
 

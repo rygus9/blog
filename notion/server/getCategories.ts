@@ -1,6 +1,6 @@
 import { memoize } from "lodash-es";
 
-import { notion } from ".";
+import { notion } from "..";
 
 export const getCategories = memoize(async () => {
   const {

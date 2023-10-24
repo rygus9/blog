@@ -2,8 +2,8 @@ import { CalendarIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-import { getNotes } from "@/notion/getNotes";
-import { getRecords } from "@/notion/getRecords";
+import { getNotes } from "@/notion/server/getNotes";
+import { getRecords } from "@/notion/server/getRecords";
 
 import { Divider } from "../components/common/Divider";
 import { NoteListCard } from "../components/note/NoteListCard";
