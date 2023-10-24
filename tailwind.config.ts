@@ -2,7 +2,11 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: "class",
-  content: ["./app/**/*.{ts,tsx}", "./common/**/*.{ts,tsx}"],
+  content: [
+    "./app/**/*.{ts,tsx}",
+    "./component/**/*.{ts,tsx}",
+    "./notion/component/**/*.{ts,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
