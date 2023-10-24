@@ -1,6 +1,6 @@
-import { getRecords } from "@/common/notion/getRecords";
+import { getRecords } from "@/notion/getRecords";
 
-import { Divider } from "../../common/components/Divider";
+import { Divider } from "../../components/Divider";
 import { Title } from "../_feature/components/Title";
 import { RecordCard } from "./_feature/components/RecordCard";
 

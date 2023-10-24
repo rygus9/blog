@@ -1,7 +1,7 @@
 import { CalendarIcon, LinkIcon } from "@heroicons/react/20/solid";
 
-import { RecordMeta } from "@/common/notion/getRecords";
-import { classNames } from "@/common/utils/classNames";
+import { RecordMeta } from "@/notion/getRecords";
+import { classNames } from "@/utils/classNames";
 
 interface RecordCardProps extends Omit<RecordMeta, "id"> {}
 

@@ -4,7 +4,7 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 import { useCallback, useEffect, useState } from "react";
 
-import { classNames } from "../../../common/utils/classNames";
+import { classNames } from "../../../utils/classNames";
 
 interface DarkToggleProps {
   className?: string;

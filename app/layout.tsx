@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Black_Han_Sans, Noto_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 
-import { classNames } from "../common/utils/classNames";
+import { classNames } from "../utils/classNames";
 import { Header } from "./_feature/components/Header";
 import { Providers } from "./_feature/Providers";
 

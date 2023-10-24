@@ -1,7 +1,7 @@
-import { getCategories } from "@/common/notion/getCategories";
-import { getNotes } from "@/common/notion/getNotes";
+import { getCategories } from "@/notion/getCategories";
+import { getNotes } from "@/notion/getNotes";
 
-import { Divider } from "../../common/components/Divider";
+import { Divider } from "../../components/Divider";
 import { Title } from "../_feature/components/Title";
 import { CategoryNav } from "./_feature/components/CategoryNav";
 import { NoteList } from "./_feature/components/NoteList";
