@@ -4,8 +4,9 @@ import type { Metadata } from "next";
 import { Black_Han_Sans, Noto_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 
+import { RootProvider } from "@/components/RootProvider";
+
 import { Header } from "../components/Header";
-import { Providers } from "../components/Providers";
 import { classNames } from "../utils/classNames";
 
 const notoSansKr = Noto_Sans_KR({
@@ -42,12 +43,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           "font-noto",
         )}
       >
-        <Providers>
+        <RootProvider>
           <Header />
           <div className="relative m-auto my-28 sm:my-32 px-4 max-w-2xl">
             {children}
           </div>
-        </Providers>
+        </RootProvider>
       </body>
     </html>
   );
