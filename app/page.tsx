@@ -6,8 +6,8 @@ import { getNotes } from "@/notion/server/getNotes";
 import { getRecords } from "@/notion/server/getRecords";
 
 import { Divider } from "../component/common/Divider";
+import { Title } from "../component/common/Title";
 import { NoteListCard } from "../component/note/NoteListCard";
-import { Title } from "../component/Title";
 
 const SectionTitle = ({
   href,
