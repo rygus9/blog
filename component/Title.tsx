@@ -2,7 +2,7 @@ import { ArrowUturnLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 
-import { classNames } from "@/utils/classNames";
+import { classNames } from "@/util/classNames";
 
 interface TitleProps {
   showHomeLink?: boolean;

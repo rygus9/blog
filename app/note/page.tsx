@@ -1,10 +1,10 @@
 import { getCategories } from "@/notion/server/getCategories";
 import { getNotes } from "@/notion/server/getNotes";
 
-import { Divider } from "../../components/common/Divider";
-import { CategoryNav } from "../../components/note/CategoryNav";
-import { NoteList } from "../../components/note/NoteList";
-import { Title } from "../../components/Title";
+import { Divider } from "../../component/common/Divider";
+import { CategoryNav } from "../../component/note/CategoryNav";
+import { NoteList } from "../../component/note/NoteList";
+import { Title } from "../../component/Title";
 
 const Page = async () => {
   const categorys = await getCategories();

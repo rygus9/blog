@@ -5,9 +5,9 @@ import { PropsWithChildren } from "react";
 import { getNotes } from "@/notion/server/getNotes";
 import { getRecords } from "@/notion/server/getRecords";
 
-import { Divider } from "../components/common/Divider";
-import { NoteListCard } from "../components/note/NoteListCard";
-import { Title } from "../components/Title";
+import { Divider } from "../component/common/Divider";
+import { NoteListCard } from "../component/note/NoteListCard";
+import { Title } from "../component/Title";
 
 const SectionTitle = ({
   href,

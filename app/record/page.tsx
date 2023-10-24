@@ -1,8 +1,8 @@
 import { getRecords } from "@/notion/server/getRecords";
 
-import { Divider } from "../../components/common/Divider";
-import { RecordCard } from "../../components/record/RecordCard";
-import { Title } from "../../components/Title";
+import { Divider } from "../../component/common/Divider";
+import { RecordCard } from "../../component/record/RecordCard";
+import { Title } from "../../component/Title";
 
 const Page = async () => {
   const records = await getRecords();

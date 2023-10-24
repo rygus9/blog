@@ -4,10 +4,10 @@ import type { Metadata } from "next";
 import { Black_Han_Sans, Noto_Sans_KR } from "next/font/google";
 import localFont from "next/font/local";
 
-import { RootProvider } from "@/components/RootProvider";
+import { RootProvider } from "@/component/RootProvider";
 
-import { Header } from "../components/Header";
-import { classNames } from "../utils/classNames";
+import { Header } from "../component/Header";
+import { classNames } from "../util/classNames";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
@@ -22,7 +22,7 @@ const blackHanSans = Black_Han_Sans({
 });
 
 const arita = localFont({
-  src: "./fonts/Arita-dotum-Medium.woff",
+  src: "./font/Arita-dotum-Medium.woff",
   display: "swap",
   variable: "--arita",
 });
