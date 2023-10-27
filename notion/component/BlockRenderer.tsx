@@ -1,8 +1,23 @@
-import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  BlockObjectResponse,
+  BulletedListItemBlockObjectResponse,
+  NumberedListItemBlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 
 import { RichText } from "./RichText";
 
-export const BlockRenderer = ({ block }: { block: BlockObjectResponse }) => {
+export type BlockObject =
+  | BlockObjectResponse
+  | {
+      type: "bulleted_list";
+      bulleted_list: BulletedListItemBlockObjectResponse[];
+    }
+  | {
+      type: "numbered_list";
+      numbered_list: NumberedListItemBlockObjectResponse[];
+    };
+
+export const BlockRenderer = ({ block }: { block: BlockObject }) => {
   const { type } = block;
 
   switch (type) {
@@ -36,6 +51,35 @@ export const BlockRenderer = ({ block }: { block: BlockObjectResponse }) => {
           <RichText texts={block.quote.rich_text} />
         </div>
       );
+    case "bulleted_list":
+      return (
+        <ul className="my-6 list-disc">
+          {block.bulleted_list.map((bulletedListItem) => (
+            <BlockRenderer block={bulletedListItem} key={bulletedListItem.id} />
+          ))}
+        </ul>
+      );
+    case "numbered_list":
+      return (
+        <ol className="my-6 list-decimal">
+          {block.numbered_list.map((numberedListItem) => (
+            <BlockRenderer block={numberedListItem} key={numberedListItem.id} />
+          ))}
+        </ol>
+      );
+    case "bulleted_list_item":
+      return (
+        <li className="my-3 ml-4">
+          <RichText texts={block.bulleted_list_item.rich_text} />
+        </li>
+      );
+    case "numbered_list_item":
+      return (
+        <li className="my-3 ml-4">
+          <RichText texts={block.numbered_list_item.rich_text} />
+        </li>
+      );
+
     default:
       return <p />;
   }
