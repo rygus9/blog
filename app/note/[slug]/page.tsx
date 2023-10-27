@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType } from "next";
 
-import { BlocksRenderer } from "@/notion/component/NotionRenderer";
+import { BlocksRenderer } from "@/notion/component/BlocksRenderer";
 import { getNote } from "@/notion/server/getNote";
 import { getNotes } from "@/notion/server/getNotes";
 
