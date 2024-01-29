@@ -4,6 +4,8 @@ import {
   NumberedListItemBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
+// eslint-disable-next-line import/no-cycle
+import { BlocksRenderer } from "./BlocksRenderer";
 import { RichText } from "./RichText";
 
 export type BlockObject =
@@ -78,6 +80,28 @@ export const BlockRenderer = ({ block }: { block: BlockObject }) => {
         <li className="my-3 ml-4">
           <RichText texts={block.numbered_list_item.rich_text} />
         </li>
+      );
+    case "table": {
+      const { has_children, id } = block;
+      if (has_children) {
+        return (
+          <table className="table-auto border-collapse border border-txt-300">
+            <BlocksRenderer block_id={id} />
+          </table>
+        );
+      }
+      return <table />;
+    }
+
+    case "table_row":
+      return (
+        <tr>
+          {block.table_row.cells.map((col) => (
+            <td className="border border-txt-300 p-1">
+              <RichText texts={col} />
+            </td>
+          ))}
+        </tr>
       );
 
     default:

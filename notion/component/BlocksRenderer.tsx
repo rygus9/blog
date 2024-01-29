@@ -4,6 +4,7 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 
 import { notion } from "..";
+// eslint-disable-next-line import/no-cycle
 import { BlockObject, BlockRenderer } from "./BlockRenderer";
 
 export const BlocksRenderer = async ({ block_id }: { block_id: string }) => {
