@@ -2,8 +2,11 @@ import {
   BlockObjectResponse,
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
+  TableRowBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
+// eslint-disable-next-line import/no-cycle
+import { getChildrenBlock } from "./BlocksRenderer";
 import { RichText } from "./RichText";
 
 export type BlockObject =
@@ -17,7 +20,7 @@ export type BlockObject =
       numbered_list: NumberedListItemBlockObjectResponse[];
     };
 
-export const BlockRenderer = ({ block }: { block: BlockObject }) => {
+export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
   const { type } = block;
 
   switch (type) {
@@ -79,6 +82,50 @@ export const BlockRenderer = ({ block }: { block: BlockObject }) => {
           <RichText texts={block.numbered_list_item.rich_text} />
         </li>
       );
+    /**
+     * 테이블은 자식이 존재 + 부모 블록 값이 자식 블록 렌더링에 영향을 줌.
+     * 그래서 해당 블록 안에서 자식 요소도 불러서 처리함.
+     * 부모와 연관이 없는 자식 블록이라면 재귀를 사용하는걸 추천. (현재는 그런 니즈가 없어서 해당 로직 없음.)
+     */
+    case "table": {
+      const {
+        has_children,
+        id,
+        table: { has_row_header, has_column_header },
+      } = block;
+
+      if (!has_children) {
+        return <table />;
+      }
+
+      const childrenBlock = (await getChildrenBlock({
+        block_id: id,
+      })) as TableRowBlockObjectResponse[];
+
+      return (
+        <table className="my-6 table-auto border-collapse border border-back-em">
+          {childrenBlock.map((tableRowBlock, row_idx) => (
+            <tr>
+              {tableRowBlock.table_row.cells.map((col, col_idx) =>
+                /**
+                 * 헷갈리지 말기. row에 헤더 있음 = 해당 헤더는 column_header임.
+                 */
+                (row_idx === 0 && has_column_header) ||
+                (col_idx === 0 && has_row_header) ? (
+                  <th className="border border-back-em p-2 pr-6 bg-back-em text-left">
+                    <RichText texts={col} />
+                  </th>
+                ) : (
+                  <td className="border border-back-em p-2 pr-6">
+                    <RichText texts={col} />
+                  </td>
+                ),
+              )}
+            </tr>
+          ))}
+        </table>
+      );
+    }
 
     default:
       return <p />;

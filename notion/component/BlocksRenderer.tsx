@@ -4,12 +4,18 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 
 import { notion } from "..";
-import { BlockObject, BlockRenderer } from "./BlockRenderer";
+// eslint-disable-next-line import/no-cycle
+import { BlockObject } from "./BlockRenderer";
 
-export const BlocksRenderer = async ({ block_id }: { block_id: string }) => {
+export const getChildrenBlock = async ({ block_id }: { block_id: string }) => {
   let next_cursor;
   const blocksResponse: (BlockObjectResponse | PartialBlockObjectResponse)[] =
     [];
+
+  /**
+   * 불러오는 block이 많으면 중간에 끊길 수 있음.
+   * 그런 경우를 대비해서 계속 요청하게 만듬.
+   */
   do {
     // eslint-disable-next-line no-await-in-loop
     const result = await notion.blocks.children.list({
@@ -19,17 +25,16 @@ export const BlocksRenderer = async ({ block_id }: { block_id: string }) => {
     blocksResponse.push(...result.results);
   } while (next_cursor);
 
-  const blocks = generateListBlock(blocksResponse as BlockObjectResponse[]);
-
-  return (
-    <>
-      {blocks.map((block) => (
-        <BlockRenderer block={block} />
-      ))}
-    </>
-  );
+  return generateListBlock(blocksResponse as BlockObjectResponse[]);
 };
 
+/**
+ * notion block에는 리스트를 감싸는 요소 타입은 존재하지 않음.
+ * 그래서 직접 리스트가 나오면 리스트를 감싸주는 요소를 만들어줌.
+ *
+ * @param blocks
+ * @returns BlockObjectResponse[]
+ */
 const generateListBlock = (blocks: BlockObjectResponse[]) => {
   return blocks.reduce<BlockObject[]>((acc, cur) => {
     const lastAcc = acc[acc.length - 1];
