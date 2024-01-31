@@ -23,7 +23,7 @@ const Page = async () => {
       <Divider />
       <section className="relative">
         <CategoryNav categorys={categorys} />
-        <hr className="border-back-em my-8 lg:hidden" />
+        <hr className="border-contrast-200 my-8 lg:hidden" />
         <NoteList notes={notes} />
       </section>
     </main>

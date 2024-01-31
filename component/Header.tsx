@@ -33,11 +33,11 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed z-40 top-0 w-full h-16 border-b border-border backdrop-blur-sm bg-back bg-opacity-90">
+      <header className="fixed z-40 top-0 w-full h-16 border-b border-contrast-300 backdrop-blur-sm bg-contrast-100 bg-opacity-90">
         <div className="max-w-5xl w-full h-full m-auto px-6 flex items-center">
           <h1
             className={classNames(
-              "text-2xl font-bold text-txt-700 flex-1 tracking-wide",
+              "text-2xl font-bold text-contrast-700 flex-1 tracking-wide",
               "sm:flex-none sm:mr-12",
             )}
           >
@@ -47,7 +47,7 @@ export const Header = () => {
           </h1>
           <div
             className={classNames(
-              "hidden text-txt-300",
+              "hidden text-contrast-500",
               "sm:flex-1 sm:flex sm:items-center sm:space-x-6",
             )}
           >
@@ -56,7 +56,7 @@ export const Header = () => {
                 href={href}
                 key={name}
                 className={classNames(
-                  nowSection === section && "text-txt-500 font-semibold",
+                  nowSection === section && "text-contrast-600 font-semibold",
                 )}
               >
                 {name}
@@ -85,7 +85,7 @@ export const Header = () => {
       {!isClose && (
         <div
           className={classNames(
-            "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-back text-txt-300",
+            "fixed z-40 w-full h-[calc(100%-64px)] top-16 bg-contrast-100 text-contrast-500",
             "sm:hidden",
           )}
         >
@@ -96,7 +96,7 @@ export const Header = () => {
                 key={name}
                 className={classNames(
                   "text-lg",
-                  nowSection === section && "text-txt-500 font-semibold",
+                  nowSection === section && "text-contrast-600 font-semibold",
                 )}
                 onClick={onClose}
               >

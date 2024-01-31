@@ -1,1 +1,1 @@
-export const Divider = () => <hr className="border-border my-8" />;
+export const Divider = () => <hr className="border-contrast-300 my-8" />;

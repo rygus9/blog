@@ -13,7 +13,7 @@ const SectionTitle = ({
   href,
   children,
 }: PropsWithChildren<{ href: string }>) => (
-  <h2 className="text-lg text-txt-700 font-arita font-bold">
+  <h2 className="text-lg text-contrast-700 font-arita font-bold">
     <Link href={href} className="flex items-center justify-start">
       {children} <ChevronRightIcon className="w-5 h-5 ml-1 stroke-2" />
     </Link>
@@ -22,7 +22,7 @@ const SectionTitle = ({
 
 const MoreLink = ({ href }: { href: string }) => (
   <Link
-    className="inline-block mt-2 text-sm text-txt-300 font-arita"
+    className="inline-block mt-2 text-sm text-contrast-500 font-arita"
     href={href}
   >
     더보기...
@@ -63,7 +63,7 @@ const Page = async () => {
       <section>
         <SectionTitle href="/record">나의 일기</SectionTitle>
         <div className="my-3">
-          <span className="inline-flex gap-1 items-center text-txt-300 align-middle">
+          <span className="inline-flex gap-1 items-center text-contrast-500 align-middle">
             <CalendarIcon className="w-4 h-4" />
             <span className="font-arita">{created}</span>
           </span>

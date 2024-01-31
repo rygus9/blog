@@ -15,14 +15,14 @@ const config: Config = {
         arita: ["var(--arita)"],
       },
       colors: {
-        txt: {
-          300: "rgba(var(--color-text-week), <alpha-value>)",
-          500: "rgba(var(--color-text), <alpha-value>)",
-          700: "rgba(var(--color-text-em), <alpha-value>)",
+        contrast: {
+          100: "rgba(var(--color-contrast-100), <alpha-value>)",
+          200: "rgba(var(--color-contrast-200), <alpha-value>)",
+          300: "rgba(var(--color-contrast-300), <alpha-value>)",
+          500: "rgba(var(--color-contrast-500), <alpha-value>)",
+          600: "rgba(var(--color-contrast-600), <alpha-value>)",
+          700: "rgba(var(--color-contrast-700), <alpha-value>)",
         },
-        border: "rgba(var(--color-border), <alpha-value>)",
-        back: "rgba(var(--color-bg), <alpha-value>)",
-        "back-em": "rgba(var(--color-bg-em), <alpha-value>)",
       },
     },
   },
