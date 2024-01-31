@@ -8,20 +8,20 @@ interface RecordCardProps extends Omit<RecordMeta, "id"> {}
 export const RecordCard = ({ content, created, title }: RecordCardProps) => (
   <article className="py-8 first:pt-0">
     <h2
-      className="text-[22px] text-txt-500 font-semibold scroll-mt-20"
+      className="text-[22px] text-contrast-600 font-semibold scroll-mt-20"
       id={created}
     >
       <a
         href={`#${created}`}
         className={classNames(
           "flex items-center justify-start gap-1",
-          "hover:text-txt-300",
+          "hover:text-contrast-500",
         )}
       >
-        {title} <LinkIcon className="w-5 h-5 text-txt-300" />
+        {title} <LinkIcon className="w-5 h-5 text-contrast-500" />
       </a>
     </h2>
-    <span className="inline-flex gap-1 items-center text-sm text-txt-300 align-middle mt-1">
+    <span className="inline-flex gap-1 items-center text-sm text-contrast-500 align-middle mt-1">
       <CalendarIcon className="w-4 h-4" />
       <span className="font-arita">{created}</span>
     </span>

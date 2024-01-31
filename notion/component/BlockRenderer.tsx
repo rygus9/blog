@@ -32,25 +32,25 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
       );
     case "heading_1":
       return (
-        <h1 className="mt-14 mb-6 text-txt-700">
+        <h1 className="mt-14 mb-6 text-contrast-700">
           <RichText texts={block.heading_1.rich_text} />
         </h1>
       );
     case "heading_2":
       return (
-        <h2 className="mt-10 mb-6 text-2xl font-semibold text-txt-700">
+        <h2 className="mt-10 mb-6 text-2xl font-semibold text-contrast-700">
           <RichText texts={block.heading_2.rich_text} />
         </h2>
       );
     case "heading_3":
       return (
-        <h3 className="mt-8 mb-6 text-xl font-semibold text-txt-700">
+        <h3 className="mt-8 mb-6 text-xl font-semibold text-contrast-700">
           <RichText texts={block.heading_3.rich_text} />
         </h3>
       );
     case "quote":
       return (
-        <div className="border-l-4 border-txt-500 px-4 py-2 bg-back-em bg-opacity-60 leading-7">
+        <div className="border-l-4 border-contrast-600 px-4 py-2 bg-contrast-100-em bg-opacity-60 leading-7">
           <RichText texts={block.quote.rich_text} />
         </div>
       );
@@ -103,7 +103,7 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
       })) as TableRowBlockObjectResponse[];
 
       return (
-        <table className="my-6 table-auto border-collapse border border-back-em">
+        <table className="my-6 table-auto border-collapse border border-contrast-300">
           {childrenBlock.map((tableRowBlock, row_idx) => (
             <tr>
               {tableRowBlock.table_row.cells.map((col, col_idx) =>
@@ -112,11 +112,11 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
                  */
                 (row_idx === 0 && has_column_header) ||
                 (col_idx === 0 && has_row_header) ? (
-                  <th className="border border-back-em p-2 pr-6 bg-back-em text-left">
+                  <th className="border border-contrast-300 p-2 pr-6 bg-contrast-100-em text-left">
                     <RichText texts={col} />
                   </th>
                 ) : (
-                  <td className="border border-back-em p-2 pr-6">
+                  <td className="border border-contrast-300 p-2 pr-6">
                     <RichText texts={col} />
                   </td>
                 ),

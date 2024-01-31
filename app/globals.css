@@ -4,23 +4,25 @@
 
 @layer base {
   :root { 
-    --color-bg: 239, 239, 239;
-    --color-bg-em: 222, 222, 222;
-    --color-text-week: 103, 103, 103;
-    --color-text: 52, 52, 52;
-    --color-text-em: 18, 18, 18;
+    --color-contrast-100: 243, 243, 243;
+    --color-contrast-200: 222, 222, 222;
+    --color-contrast-300: 204, 204, 204;
+    --color-contrast-500: 103, 103, 103;
+    --color-contrast-600: 52, 52, 52;
+    --color-contrast-700: 18, 18, 18;
   }
 
   :root[class~="dark"] {
-    --color-bg: 18, 18, 18;
-    --color-bg-em: 52, 52, 52;
-    --color-text-week: 171, 171, 171;
-    --color-text: 205, 205, 205;
-    --color-text-em: 239, 239, 239;
+    --color-contrast-100: 18, 18, 18;
+    --color-contrast-200: 52, 52, 52;
+    --color-contrast-300: 80, 80, 80;
+    --color-contrast-500: 171, 171, 171;
+    --color-contrast-600: 205, 205, 205;
+    --color-contrast-700: 239, 239, 239;
   }
 
   body {
-    background: rgb(var(--color-bg));
-    color: rgb(var(--color-text));
+    background: rgb(var(--color-contrast-100));
+    color: rgb(var(--color-contrast-600));
   }
 }

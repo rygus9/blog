@@ -14,7 +14,7 @@ const Page = async () => {
       </Title>
       <Divider />
 
-      <div className="divide-y divide-back-em">
+      <div className="divide-y divide-contrast-200">
         {records.map((props) => (
           <RecordCard {...props} key={props.id} />
         ))}

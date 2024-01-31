@@ -26,7 +26,7 @@ export const Title = ({
           >
             <Link
               href="/"
-              className="inline-flex items-center space-x-2 text-txt-300 hover:text-txt-700"
+              className="inline-flex items-center space-x-2 text-contrast-500 hover:text-contrast-700"
             >
               <ArrowUturnLeftIcon className="w-4 h-4" />
               <span> 홈으로</span>

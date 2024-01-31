@@ -16,14 +16,14 @@ export const CategoryNav = ({ categorys }: CategoryNavProps) => {
   return (
     <ul
       className={classNames(
-        "flex items-center gap-4 gap-y-2 text-txt-300 mb-6 flex-wrap text-base",
+        "flex items-center gap-4 gap-y-2 text-contrast-500 mb-6 flex-wrap text-base",
         "lg:flex-col lg:items-start lg:gap-y-4 lg:absolute lg:-left-40 lg:top-1 lg:w-40 lg:h-fit",
       )}
     >
       <li className={classNames(!nowCategory && "-order-1")}>
         <Link
           href="/note"
-          className={classNames(!nowCategory && "text-txt-700 text-lg")}
+          className={classNames(!nowCategory && "text-contrast-700 text-lg")}
         >
           전체 보기
         </Link>
@@ -36,7 +36,7 @@ export const CategoryNav = ({ categorys }: CategoryNavProps) => {
           <Link
             href={`/note?category=${category}`}
             className={classNames(
-              nowCategory === category && "text-txt-700 text-lg",
+              nowCategory === category && "text-contrast-700 text-lg",
             )}
           >
             {category}

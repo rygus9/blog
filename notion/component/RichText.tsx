@@ -22,14 +22,16 @@ export const RichText = ({ texts }: { texts: RichTextItemResponse[] }) => {
       );
 
       if (bold)
-        element = <strong className="font-bold text-txt-700">{element}</strong>;
+        element = (
+          <strong className="font-bold text-contrast-700">{element}</strong>
+        );
       if (italic) element = <i>{element}</i>;
       if (strikethrough)
         element = <span className="line-through">{element}</span>;
       if (underline) element = <span>{element}</span>;
       if (code)
         element = (
-          <code className="inline-block px-1.5 mx-0.5 bg-back-em rounded-md text-txt-700">
+          <code className="inline-block px-1.5 mx-0.5 bg-contrast-100-em rounded-md text-contrast-700">
             {element}
           </code>
         );
@@ -37,7 +39,7 @@ export const RichText = ({ texts }: { texts: RichTextItemResponse[] }) => {
         element = (
           <Link
             href={href}
-            className="text-txt-300 underline underline-offset-4 hover:text-txt-500"
+            className="text-contrast-500 underline underline-offset-4 hover:text-contrast-600"
           >
             {element}
           </Link>
