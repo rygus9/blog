@@ -2,10 +2,11 @@ import {
   BlockObjectResponse,
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
+  TableRowBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
 // eslint-disable-next-line import/no-cycle
-import { BlocksRenderer } from "./BlocksRenderer";
+import { getChildrenBlock } from "./BlocksRenderer";
 import { RichText } from "./RichText";
 
 export type BlockObject =
@@ -19,7 +20,7 @@ export type BlockObject =
       numbered_list: NumberedListItemBlockObjectResponse[];
     };
 
-export const BlockRenderer = ({ block }: { block: BlockObject }) => {
+export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
   const { type } = block;
 
   switch (type) {
@@ -82,27 +83,41 @@ export const BlockRenderer = ({ block }: { block: BlockObject }) => {
         </li>
       );
     case "table": {
-      const { has_children, id } = block;
-      if (has_children) {
-        return (
-          <table className="table-auto border-collapse border border-txt-300">
-            <BlocksRenderer block_id={id} />
-          </table>
-        );
-      }
-      return <table />;
-    }
+      const {
+        has_children,
+        id,
+        table: { has_row_header, has_column_header },
+      } = block;
 
-    case "table_row":
+      if (!has_children) {
+        return <table />;
+      }
+
+      const childrenBlock = (await getChildrenBlock({
+        block_id: id,
+      })) as TableRowBlockObjectResponse[];
+
       return (
-        <tr>
-          {block.table_row.cells.map((col) => (
-            <td className="border border-txt-300 p-1">
-              <RichText texts={col} />
-            </td>
+        <table className="my-6 table-auto border-collapse border border-back-em">
+          {childrenBlock.map((tableRowBlock, row_idx) => (
+            <tr>
+              {tableRowBlock.table_row.cells.map((col, col_idx) =>
+                (row_idx === 0 && has_column_header) ||
+                (col_idx === 0 && has_row_header) ? (
+                  <th className="border border-back-em p-2 pr-6 bg-back-em text-left">
+                    <RichText texts={col} />
+                  </th>
+                ) : (
+                  <td className="border border-back-em p-2 pr-6">
+                    <RichText texts={col} />
+                  </td>
+                ),
+              )}
+            </tr>
           ))}
-        </tr>
+        </table>
       );
+    }
 
     default:
       return <p />;

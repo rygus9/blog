@@ -5,9 +5,9 @@ import {
 
 import { notion } from "..";
 // eslint-disable-next-line import/no-cycle
-import { BlockObject, BlockRenderer } from "./BlockRenderer";
+import { BlockObject } from "./BlockRenderer";
 
-export const BlocksRenderer = async ({ block_id }: { block_id: string }) => {
+export const getChildrenBlock = async ({ block_id }: { block_id: string }) => {
   let next_cursor;
   const blocksResponse: (BlockObjectResponse | PartialBlockObjectResponse)[] =
     [];
@@ -20,15 +20,7 @@ export const BlocksRenderer = async ({ block_id }: { block_id: string }) => {
     blocksResponse.push(...result.results);
   } while (next_cursor);
 
-  const blocks = generateListBlock(blocksResponse as BlockObjectResponse[]);
-
-  return (
-    <>
-      {blocks.map((block) => (
-        <BlockRenderer block={block} />
-      ))}
-    </>
-  );
+  return generateListBlock(blocksResponse as BlockObjectResponse[]);
 };
 
 const generateListBlock = (blocks: BlockObjectResponse[]) => {
