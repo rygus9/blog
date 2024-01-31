@@ -103,7 +103,7 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
       })) as TableRowBlockObjectResponse[];
 
       return (
-        <table className="my-6 table-auto border-collapse border border-back-em">
+        <table className="my-6 table-auto border-collapse border border-border">
           {childrenBlock.map((tableRowBlock, row_idx) => (
             <tr>
               {tableRowBlock.table_row.cells.map((col, col_idx) =>
@@ -112,11 +112,11 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
                  */
                 (row_idx === 0 && has_column_header) ||
                 (col_idx === 0 && has_row_header) ? (
-                  <th className="border border-back-em p-2 pr-6 bg-back-em text-left">
+                  <th className="border border-border p-2 pr-6 bg-back-em text-left">
                     <RichText texts={col} />
                   </th>
                 ) : (
-                  <td className="border border-back-em p-2 pr-6">
+                  <td className="border border-border p-2 pr-6">
                     <RichText texts={col} />
                   </td>
                 ),

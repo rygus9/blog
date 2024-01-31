@@ -20,6 +20,7 @@ const config: Config = {
           500: "rgba(var(--color-text), <alpha-value>)",
           700: "rgba(var(--color-text-em), <alpha-value>)",
         },
+        border: "rgba(var(--color-border), <alpha-value>)",
         back: "rgba(var(--color-bg), <alpha-value>)",
         "back-em": "rgba(var(--color-bg-em), <alpha-value>)",
       },

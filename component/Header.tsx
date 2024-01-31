@@ -33,7 +33,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="fixed z-40 top-0 w-full h-16 border-b border-back-em backdrop-blur-sm bg-back bg-opacity-90">
+      <header className="fixed z-40 top-0 w-full h-16 border-b border-border backdrop-blur-sm bg-back bg-opacity-90">
         <div className="max-w-5xl w-full h-full m-auto px-6 flex items-center">
           <h1
             className={classNames(

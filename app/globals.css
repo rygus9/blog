@@ -6,6 +6,7 @@
   :root { 
     --color-bg: 239, 239, 239;
     --color-bg-em: 222, 222, 222;
+    --color-border: 204, 204, 204;
     --color-text-week: 103, 103, 103;
     --color-text: 52, 52, 52;
     --color-text-em: 18, 18, 18;
@@ -14,6 +15,7 @@
   :root[class~="dark"] {
     --color-bg: 18, 18, 18;
     --color-bg-em: 52, 52, 52;
+    --color-border: 80, 80, 80;
     --color-text-week: 171, 171, 171;
     --color-text: 205, 205, 205;
     --color-text-em: 239, 239, 239;
