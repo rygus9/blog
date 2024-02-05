@@ -104,35 +104,37 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
 
       return (
         <table className="my-6 table-auto border-collapse border border-contrast-300">
-          {childrenBlock.map((tableRowBlock, row_idx) => (
-            <tr>
-              {tableRowBlock.table_row.cells.map((col, col_idx) =>
-                /**
-                 * 헷갈리지 말기. row에 헤더 있음 = 해당 헤더는 column_header임.
-                 */
-                (row_idx === 0 && has_column_header) ||
-                (col_idx === 0 && has_row_header) ? (
-                  <th
-                    aria-label={col
-                      .map(({ plain_text }) => plain_text)
-                      .join(" ")}
-                    className="border border-contrast-300 p-2 pr-6 bg-contrast-200 text-left"
-                  >
-                    <RichText texts={col} />
-                  </th>
-                ) : (
-                  <td
-                    aria-label={col
-                      .map(({ plain_text }) => plain_text)
-                      .join(" ")}
-                    className="border border-contrast-300 p-2 pr-6"
-                  >
-                    <RichText texts={col} />
-                  </td>
-                ),
-              )}
-            </tr>
-          ))}
+          <tbody>
+            {childrenBlock.map((tableRowBlock, row_idx) => (
+              <tr>
+                {tableRowBlock.table_row.cells.map((col, col_idx) =>
+                  /**
+                   * 헷갈리지 말기. row에 헤더 있음 = 해당 헤더는 column_header임.
+                   */
+                  (row_idx === 0 && has_column_header) ||
+                  (col_idx === 0 && has_row_header) ? (
+                    <th
+                      aria-label={col
+                        .map(({ plain_text }) => plain_text)
+                        .join(" ")}
+                      className="border border-contrast-300 p-2 pr-6 bg-contrast-200 text-left"
+                    >
+                      <RichText texts={col} />
+                    </th>
+                  ) : (
+                    <td
+                      aria-label={col
+                        .map(({ plain_text }) => plain_text)
+                        .join(" ")}
+                      className="border border-contrast-300 p-2 pr-6"
+                    >
+                      <RichText texts={col} />
+                    </td>
+                  ),
+                )}
+              </tr>
+            ))}
+          </tbody>
         </table>
       );
     }
