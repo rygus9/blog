@@ -34,14 +34,5 @@ yarn-error.log*
 *.tsbuildinfo
 *-env.d.ts
 
-# yarn berry
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versionss
-
-# log or temp file
+# log file
 temp
