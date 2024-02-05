@@ -50,7 +50,7 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
       );
     case "quote":
       return (
-        <div className="border-l-4 border-contrast-600 px-4 py-2 bg-contrast-100-em bg-opacity-60 leading-7">
+        <div className="border-l-4 border-contrast-600 px-4 py-2 bg-contrast-200 bg-opacity-60 leading-7">
           <RichText texts={block.quote.rich_text} />
         </div>
       );
@@ -112,7 +112,10 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
                  */
                 (row_idx === 0 && has_column_header) ||
                 (col_idx === 0 && has_row_header) ? (
-                  <th className="border border-contrast-300 p-2 pr-6 bg-contrast-100-em text-left">
+                  <th
+                    id="good"
+                    className="border border-contrast-300 p-2 pr-6 bg-contrast-200 text-left"
+                  >
                     <RichText texts={col} />
                   </th>
                 ) : (
