@@ -5,6 +5,7 @@ import {
   TableRowBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
+import { plainText } from "../util/plainText";
 // eslint-disable-next-line import/no-cycle
 import { getChildrenBlock } from "./BlocksRenderer";
 import { RichText } from "./RichText";
@@ -106,32 +107,32 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
         <table className="my-6 table-auto border-collapse border border-contrast-300">
           <tbody>
             {childrenBlock.map((tableRowBlock, row_idx) => (
-              <tr>
-                {tableRowBlock.table_row.cells.map((col, col_idx) =>
+              <tr key={tableRowBlock.id}>
+                {tableRowBlock.table_row.cells.map((col, col_idx) => {
+                  const text = plainText(col);
+
                   /**
                    * 헷갈리지 말기. row에 헤더 있음 = 해당 헤더는 column_header임.
                    */
-                  (row_idx === 0 && has_column_header) ||
-                  (col_idx === 0 && has_row_header) ? (
+                  return (row_idx === 0 && has_column_header) ||
+                    (col_idx === 0 && has_row_header) ? (
                     <th
-                      aria-label={col
-                        .map(({ plain_text }) => plain_text)
-                        .join(" ")}
+                      key={text}
+                      aria-label={text}
                       className="border border-contrast-300 p-2 pr-6 bg-contrast-200 text-left"
                     >
                       <RichText texts={col} />
                     </th>
                   ) : (
                     <td
-                      aria-label={col
-                        .map(({ plain_text }) => plain_text)
-                        .join(" ")}
+                      key={text}
+                      aria-label={text}
                       className="border border-contrast-300 p-2 pr-6"
                     >
                       <RichText texts={col} />
                     </td>
-                  ),
-                )}
+                  );
+                })}
               </tr>
             ))}
           </tbody>
