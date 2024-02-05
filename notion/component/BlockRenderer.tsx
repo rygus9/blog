@@ -113,13 +113,20 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
                 (row_idx === 0 && has_column_header) ||
                 (col_idx === 0 && has_row_header) ? (
                   <th
-                    id="good"
+                    aria-label={col
+                      .map(({ plain_text }) => plain_text)
+                      .join(" ")}
                     className="border border-contrast-300 p-2 pr-6 bg-contrast-200 text-left"
                   >
                     <RichText texts={col} />
                   </th>
                 ) : (
-                  <td className="border border-contrast-300 p-2 pr-6">
+                  <td
+                    aria-label={col
+                      .map(({ plain_text }) => plain_text)
+                      .join(" ")}
+                    className="border border-contrast-300 p-2 pr-6"
+                  >
                     <RichText texts={col} />
                   </td>
                 ),
