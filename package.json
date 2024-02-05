@@ -23,7 +23,7 @@
     "typescript": "5.2.2",
     "usehooks-ts": "^2.9.1"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "pnpm@8.15.1+sha256.245fe901f8e7fa8782d7f17d32b6a83995e2ae03984cb5b62b8949bfdc27c7b5",
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.19",
     "@types/node": "^20.5.6",
