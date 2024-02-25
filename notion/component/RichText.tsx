@@ -31,7 +31,7 @@ export const RichText = ({ texts }: { texts: RichTextItemResponse[] }) => {
       if (underline) element = <span>{element}</span>;
       if (code)
         element = (
-          <code className="inline-block px-1.5 mx-0.5 bg-contrast-100-em rounded-md text-contrast-700">
+          <code className="inline-block px-1.5 mx-0.5 bg-contrast-200 rounded-md text-contrast-700">
             {element}
           </code>
         );

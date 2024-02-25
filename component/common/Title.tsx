@@ -33,7 +33,7 @@ export const Title = ({
             </Link>
           </div>
         )}
-        <h1 className="font-blackHan text-txt-em text-[1.75rem] sm:text-3xl">
+        <h1 className="font-blackHan text-contract-900 text-[1.75rem] sm:text-3xl">
           {title}
         </h1>
       </div>

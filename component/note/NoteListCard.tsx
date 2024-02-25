@@ -14,7 +14,7 @@ export const NoteListCard = ({
 }: NoteListCardProps) => {
   return (
     <article>
-      <p className="w-fit py-1 px-2 rounded-sm bg-contrast-100-em text-contrast-500 text-sm cursor-pointer">
+      <p className="w-fit py-1 px-2 rounded-sm bg-contrast-200 text-contrast-500 text-sm cursor-pointer">
         <Link href={`/note?category=${category}`}>{category}</Link>
       </p>
       <h3 className="text-lg text-contrast-700 mt-1">

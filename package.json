@@ -13,7 +13,7 @@
     "@notionhq/client": "^2.2.13",
     "@types/lodash-es": "^4.17.10",
     "lodash-es": "^4.17.21",
-    "next": "13.4.19",
+    "next": "14.1.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

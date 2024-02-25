@@ -46,6 +46,7 @@ export const DarkToggle = ({ className = "" }: DarkToggleProps) => {
         className,
       )}
     >
+      <div className="hidden">다크 모드 토글 버튼</div>
       <MoonIcon className="absolute top-2 left-[40px] z-10 w-5 h-5" />
       <input
         type="checkbox"
