@@ -38,10 +38,7 @@ const Page = async () => {
 
   return (
     <main>
-      <Title title="안녕하세요. DEVCO입니다.">
-        <p className="pt-4">
-          개발과 관련된 무언가를 깊게 공부하고 학습하는 과정 자체를 즐깁니다.
-        </p>
+      <Title title="DEVCO's BLOG">
         <p className="pt-3 space-x-4">
           <Link href="/resume">
             <span className="font-arita underline decoration-1 decoration-wavy underline-offset-4">
