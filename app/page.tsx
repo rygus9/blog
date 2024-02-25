@@ -20,15 +20,6 @@ const SectionTitle = ({
   </h2>
 );
 
-const MoreLink = ({ href }: { href: string }) => (
-  <Link
-    className="inline-block mt-2 text-sm text-contrast-500 font-arita"
-    href={href}
-  >
-    더보기...
-  </Link>
-);
-
 const Page = async () => {
   const notes = await getNotes();
   const records = await getRecords();
@@ -66,7 +57,6 @@ const Page = async () => {
           </span>
           <p className="pt-1">{truncatedContent}</p>
         </div>
-        <MoreLink href="/record" />
       </section>
       <Divider />
       <section>
@@ -76,7 +66,6 @@ const Page = async () => {
             <NoteListCard {...props} key={props.id} />
           ))}
         </ul>
-        <MoreLink href="/note" />
       </section>
     </main>
   );

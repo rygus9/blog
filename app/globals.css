@@ -13,7 +13,7 @@
   }
 
   :root[class~="dark"] {
-    --color-contrast-100: 18, 18, 18;
+    --color-contrast-100: 24, 24, 24;
     --color-contrast-200: 52, 52, 52;
     --color-contrast-300: 80, 80, 80;
     --color-contrast-500: 188, 188, 188;
