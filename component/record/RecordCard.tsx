@@ -6,7 +6,7 @@ import { classNames } from "@/util/classNames";
 interface RecordCardProps extends Omit<RecordMeta, "id"> {}
 
 export const RecordCard = ({ content, created, title }: RecordCardProps) => (
-  <article className="py-8 first:pt-0">
+  <article className="py-8">
     <h2
       className="text-[22px] text-contrast-600 font-semibold scroll-mt-20"
       id={created}

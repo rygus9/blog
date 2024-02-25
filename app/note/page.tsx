@@ -2,7 +2,6 @@ import { CategoryNav } from "@/component/note/CategoryNav";
 import { getCategories } from "@/notion/server/getCategories";
 import { getNotes } from "@/notion/server/getNotes";
 
-import { Divider } from "../../component/common/Divider";
 import { Title } from "../../component/common/Title";
 import { NoteList } from "../../component/note/NoteList";
 
@@ -24,7 +23,7 @@ const Page = async () => {
     <main className="w-full min-h-[500px]">
       <Title title="정리 노트" showHomeLink />
       <CategoryNav categoryInfos={categoryInfos} />
-      <Divider />
+      <hr className="border-contrast-300 mt-8 mb-4" />
       <section className="relative">
         <NoteList notes={notes} />
       </section>

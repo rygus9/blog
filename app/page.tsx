@@ -5,7 +5,6 @@ import { PropsWithChildren } from "react";
 import { getNotes } from "@/notion/server/getNotes";
 import { getRecords } from "@/notion/server/getRecords";
 
-import { Divider } from "../component/common/Divider";
 import { Title } from "../component/common/Title";
 import { NoteListCard } from "../component/note/NoteListCard";
 
@@ -13,7 +12,7 @@ const SectionTitle = ({
   href,
   children,
 }: PropsWithChildren<{ href: string }>) => (
-  <h2 className="text-lg text-contrast-700 font-arita font-bold">
+  <h2 className="inline-block text-lg text-contrast-700 font-arita font-bold">
     <Link href={href} className="flex items-center justify-start">
       {children} <ChevronRightIcon className="w-5 h-5 ml-1 stroke-2" />
     </Link>
@@ -47,7 +46,7 @@ const Page = async () => {
           </Link>
         </p>
       </Title>
-      <Divider />
+      <hr className="border-contrast-300 my-8" />
       <section>
         <SectionTitle href="/record">나의 일기</SectionTitle>
         <div className="my-3">
@@ -58,12 +57,14 @@ const Page = async () => {
           <p className="pt-1">{truncatedContent}</p>
         </div>
       </section>
-      <Divider />
+      <hr className="border-contrast-300 my-8" />
       <section>
         <SectionTitle href="/note">정리 노트</SectionTitle>
-        <ul className="space-y-8 mt-5 mb-4">
+        <ul className="mt-2">
           {notes.map((props) => (
-            <NoteListCard {...props} key={props.id} />
+            <li key={props.id}>
+              <NoteListCard {...props} />
+            </li>
           ))}
         </ul>
       </section>

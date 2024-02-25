@@ -15,11 +15,13 @@ export const NoteList = ({ notes }: NoteListProps) => {
   const nowCategory = searchParams.get("category") ?? "";
 
   return (
-    <ul className="space-y-10 min-h-[40px]">
+    <ul className="min-h-[40px]">
       {notes
         .filter((note) => (nowCategory ? note.category === nowCategory : true))
         .map((note) => (
-          <NoteListCard {...note} key={note.id} />
+          <li key={note.id}>
+            <NoteListCard {...note} />
+          </li>
         ))}
     </ul>
   );

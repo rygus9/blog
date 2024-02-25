@@ -13,7 +13,7 @@ export const NoteListCard = ({
   slug,
 }: NoteListCardProps) => {
   return (
-    <article>
+    <article className="py-4">
       <p className="w-fit py-1 px-2 rounded-sm bg-contrast-200 text-contrast-500 text-sm cursor-pointer">
         <Link href={`/note?category=${category}`}>{category}</Link>
       </p>
