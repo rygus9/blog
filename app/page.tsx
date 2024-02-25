@@ -45,7 +45,7 @@ const Page = async () => {
         <p className="pt-3 space-x-4">
           <Link href="/resume">
             <span className="font-arita underline decoration-1 decoration-wavy underline-offset-4">
-              이력서
+              ABOUT
             </span>
           </Link>
           <Link
