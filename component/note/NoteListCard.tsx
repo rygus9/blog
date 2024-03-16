@@ -17,7 +17,7 @@ export const NoteListCard = ({
       <p className="w-fit py-1 px-2 rounded-sm bg-contrast-200 text-contrast-500 text-sm cursor-pointer">
         <Link href={`/note?category=${category}`}>{category}</Link>
       </p>
-      <h3 className="text-lg text-contrast-700 mt-1">
+      <h3 className="text-lg text-contrast-700 mt-1 font-semibold">
         <Link href={`/note/${slug}`} className="align-middle mr-2">
           {title}
         </Link>

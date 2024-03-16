@@ -12,12 +12,16 @@ interface NoteListProps {
 
 export const NoteList = ({ notes }: NoteListProps) => {
   const searchParams = useSearchParams();
-  const nowCategory = searchParams.get("category") ?? "";
+  const nowCategory = searchParams.get("category") ?? "ALL";
 
   return (
     <ul className="min-h-[40px]">
       {notes
-        .filter((note) => (nowCategory ? note.category === nowCategory : true))
+        .filter((note) =>
+          nowCategory
+            ? note.category === nowCategory || nowCategory === "ALL"
+            : true,
+        )
         .map((note) => (
           <li key={note.id}>
             <NoteListCard {...note} />
