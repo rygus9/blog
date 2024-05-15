@@ -15,7 +15,7 @@ export const NoteList = ({ notes }: NoteListProps) => {
   const nowCategory = searchParams.get("category") ?? "ALL";
 
   return (
-    <ul className="min-h-[40px]">
+    <ul className="min-h-[40px] space-y-6 mt-6">
       {notes
         .filter((note) =>
           nowCategory

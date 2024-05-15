@@ -60,7 +60,7 @@ const Page = async () => {
       <hr className="border-contrast-300 my-8" />
       <section>
         <SectionTitle href="/note">정리 노트</SectionTitle>
-        <ul className="mt-2">
+        <ul className="space-y-6 mt-4">
           {notes.map((props) => (
             <li key={props.id}>
               <NoteListCard {...props} />
