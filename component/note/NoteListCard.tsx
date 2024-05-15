@@ -14,8 +14,8 @@ export const NoteListCard = ({
   slug,
 }: NoteListCardProps) => {
   return (
-    <Link href={`/note/${slug}`} className="align-middle group">
-      <article>
+    <article>
+      <Link href={`/note/${slug}`} className="align-middle group">
         <p
           className={classNames(
             "w-fit py-1 px-2 rounded-sm bg-contrast-200 text-contrast-500 text-sm cursor-pointer transition-[outline]",
@@ -39,7 +39,7 @@ export const NoteListCard = ({
             <span className="font-arita">{created}</span>
           </span>
         </section>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 };

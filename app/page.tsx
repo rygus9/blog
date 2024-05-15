@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 
 import { getNotes } from "@/notion/server/getNotes";
 import { getRecords } from "@/notion/server/getRecords";
+import { classNames } from "@/util/classNames";
 
 import { Title } from "../component/common/Title";
 import { NoteListCard } from "../component/note/NoteListCard";
@@ -31,7 +32,12 @@ const Page = async () => {
       <Title title="DEVCO's BLOG">
         <p className="pt-3 space-x-4">
           <Link href="/resume">
-            <span className="font-arita underline decoration-1 decoration-wavy underline-offset-4">
+            <span
+              className={classNames(
+                "font-arita underline decoration-1 decoration-wavy underline-offset-4 text-contrast-700",
+                "hover:text-contrast-500",
+              )}
+            >
               ABOUT
             </span>
           </Link>
@@ -40,7 +46,12 @@ const Page = async () => {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="font-arita underline decoration-1 decoration-wavy underline-offset-4">
+            <span
+              className={classNames(
+                "font-arita underline decoration-1 decoration-wavy underline-offset-4 text-contrast-700",
+                "hover:text-contrast-500",
+              )}
+            >
               GITHUB
             </span>
           </Link>
