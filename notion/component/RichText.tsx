@@ -39,6 +39,7 @@ export const RichText = ({ texts }: { texts: RichTextItemResponse[] }) => {
         element = (
           <Link
             href={href}
+            target="_blank"
             className="text-contrast-500 underline underline-offset-4 hover:text-contrast-600"
           >
             {element}

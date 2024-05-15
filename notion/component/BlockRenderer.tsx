@@ -1,9 +1,12 @@
+import "highlight.js/styles/github-dark.css";
+
 import {
   BlockObjectResponse,
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
   TableRowBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+import hljs from "highlight.js";
 
 import { plainText } from "../util/plainText";
 // eslint-disable-next-line import/no-cycle
@@ -139,6 +142,31 @@ export const BlockRenderer = async ({ block }: { block: BlockObject }) => {
         </table>
       );
     }
+
+    case "code":
+      return (
+        <div className="my-4 rounded-md border border-contrast-300 overflow-x-scroll">
+          <div className="px-4 py-3 bg-contrast-200 text-contrast-500 text-sm">
+            <RichText texts={block.code.caption} />
+          </div>
+          <div
+            suppressHydrationWarning
+            className="bg-[#262626] text-white leading-7 px-4 py-2 whitespace-pre-wrap"
+          >
+            <div
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: hljs.highlight(
+                  block.code.rich_text
+                    .map(({ plain_text }) => plain_text)
+                    .join(""),
+                  { language: block.code.language },
+                ).value,
+              }}
+            />
+          </div>
+        </div>
+      );
 
     default:
       return <p />;

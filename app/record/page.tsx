@@ -1,6 +1,5 @@
 import { getRecords } from "@/notion/server/getRecords";
 
-import { Divider } from "../../component/common/Divider";
 import { Title } from "../../component/common/Title";
 import { RecordCard } from "../../component/record/RecordCard";
 
@@ -9,11 +8,8 @@ const Page = async () => {
 
   return (
     <main className="w-full min-h-[500px]">
-      <Title title="나의 일기" showHomeLink>
-        <p className="mt-4">개인적인 생각, 고민 등을 가볍게 적어두었습니다.</p>
-      </Title>
-      <Divider />
-
+      <Title title="나의 일기" showHomeLink />
+      <hr className="border-contrast-300 mt-8" />
       <div className="divide-y divide-contrast-200">
         {records.map((props) => (
           <RecordCard {...props} key={props.id} />
