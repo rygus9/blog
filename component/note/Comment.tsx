@@ -37,7 +37,7 @@ const Input = () => {
     <div>
       <h2 className="text-lg font-bold pt-4 pb-2">Comment</h2>
       <textarea
-        className="flex h-28 w-full rounded-md border border-contrast-500 bg-white p-3 text-sm shadow-sm placeholder:text-contrast-300 focus-visible:outline-none focus:ring-1 focus:ring-contrast-500 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+        className="flex h-28 w-full rounded-md border border-contrast-500 p-3 text-sm shadow-sm placeholder:text-contrast-500 focus-visible:outline-none focus:ring-1 focus:ring-contrast-500 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
         placeholder="댓글을 입력하세요."
         spellCheck="false"
         disabled={isError}
@@ -47,7 +47,7 @@ const Input = () => {
           <span>닉네임 </span>
           <input
             placeholder="닉네임을 입력하세요."
-            className="py-2 px-2 border border-contrast-500 text-sm rounded-md placeholder:text-contrast-300 focus:outline-contrast-500 disabled:cursor-not-allowed disabled:opacity-50"
+            className="py-2 px-2 border border-contrast-500 text-sm rounded-md placeholder:text-contrast-500 focus:outline-contrast-500 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isError}
           />
         </div>
