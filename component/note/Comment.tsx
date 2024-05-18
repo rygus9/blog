@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ReactNode } from "react";
 
-import { getUserMe } from "@/apis";
+import { getLoginUrl, getUserMe } from "@/apis";
 
 import { Button } from "../common/Button";
 import {
@@ -30,6 +30,8 @@ const Input = () => {
     queryKey: ["authorize"],
     queryFn: getUserMe,
   });
+
+  const onSubmit = () => {};
 
   return (
     <div>
@@ -63,19 +65,29 @@ const Input = () => {
 };
 
 const LoginButton = ({ children }: { children: ReactNode }) => {
+  const handleLogin = (provider: "kakao" | "naver") => () => {
+    const loginUrl = getLoginUrl(provider);
+    localStorage.setItem("redirect", window.location.pathname);
+    return window.location.replace(loginUrl);
+  };
+
   return (
     <AlertDialog>
       <AlertDialogTrigger>{children}</AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="w-96">
         <AlertDialogHeader>
           <AlertDialogTitle>로그인 선택하기</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+          <AlertDialogDescription className="py-4 space-y-2">
+            <Button size="lg" className="w-full" onClick={handleLogin("kakao")}>
+              카카오 로그인
+            </Button>
+            <Button size="lg" className="w-full" onClick={handleLogin("naver")}>
+              네이버 로그인
+            </Button>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>취소</AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
@@ -88,15 +100,17 @@ const comments = [
   { id: 3, name: "kuku", content: "안녕하세요!" },
 ];
 
-const Content = () => (
-  <div className="divide-y divide-dashed border-y border-y-contrast-500 mt-4">
-    {comments.map(({ id, name, content }) => (
-      <div key={id} className="py-2 px-2 flex items-start gap-2">
-        <h3 className="w-24 text-contrast-500 text-ellipsis">
-          {name || "익명"}
-        </h3>
-        <div className="min-h-[48px]">{content}</div>
-      </div>
-    ))}
-  </div>
-);
+const Content = () => {
+  return (
+    <div className="divide-y divide-dashed border-y border-y-contrast-500 mt-4">
+      {comments.map(({ id, name, content }) => (
+        <div key={id} className="py-2 px-2 flex items-start gap-2">
+          <h3 className="w-24 text-contrast-500 text-ellipsis">
+            {name || "익명"}
+          </h3>
+          <div className="min-h-[48px]">{content}</div>
+        </div>
+      ))}
+    </div>
+  );
+};
