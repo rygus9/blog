@@ -30,11 +30,20 @@ export const Comment = ({ pageId }: CommonProps) => {
   );
 };
 
+const useComment = (pageId: string) => {
+  return useQuery({
+    queryKey: ["comment", pageId],
+    queryFn: getComments(pageId),
+  });
+};
+
 const Input = ({ pageId }: CommonProps) => {
   const { isError } = useQuery({
     queryKey: ["authorize"],
     queryFn: getUserMe,
   });
+
+  const { refetch } = useComment(pageId);
 
   const [content, setContent] = useState("");
   const [name, setName] = useState("");
@@ -45,6 +54,7 @@ const Input = ({ pageId }: CommonProps) => {
     setIsPosting(true);
     await postComment({ content, name, pageId });
     setIsPosting(false);
+    refetch();
   };
 
   return (
@@ -114,10 +124,7 @@ const LoginButton = ({ children }: { children: ReactNode }) => {
 };
 
 const Content = ({ pageId }: CommonProps) => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["comment", pageId],
-    queryFn: getComments(pageId),
-  });
+  const { data, isLoading } = useComment(pageId);
 
   return (
     <div className="divide-y divide-dashed divide-contrast-500 border-y border-y-contrast-500 mt-4 min-h-[100px]">
