@@ -1,9 +1,9 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
-import { getLoginUrl, getUserMe } from "@/apis";
+import { getComments, getLoginUrl, getUserMe, postComment } from "@/apis";
 
 import { Button } from "../common/Button";
 import {
@@ -17,21 +17,35 @@ import {
   AlertDialogTrigger,
 } from "../common/Dialog";
 
-export const Comment = () => {
+interface CommonProps {
+  pageId: string;
+}
+
+export const Comment = ({ pageId }: CommonProps) => {
   return (
     <div>
-      <Input />
+      <Input pageId={pageId} />
+      <Content pageId={pageId} />
     </div>
   );
 };
 
-const Input = () => {
+const Input = ({ pageId }: CommonProps) => {
   const { isError } = useQuery({
     queryKey: ["authorize"],
     queryFn: getUserMe,
   });
 
-  const onSubmit = () => {};
+  const [content, setContent] = useState("");
+  const [name, setName] = useState("");
+
+  const [isPosting, setIsPosting] = useState(false);
+
+  const onSubmit = async () => {
+    setIsPosting(true);
+    await postComment({ content, name, pageId });
+    setIsPosting(false);
+  };
 
   return (
     <div>
@@ -41,14 +55,18 @@ const Input = () => {
         placeholder="댓글을 입력하세요."
         spellCheck="false"
         disabled={isError}
+        value={content}
+        onChange={(e) => setContent(e.currentTarget.value)}
       />
       <div className="flex items-center justify-between pt-2">
         <div className="flex justify-start items-center gap-3">
-          <span>닉네임 </span>
+          <span>닉네임</span>
           <input
             placeholder="닉네임을 입력하세요."
             className="py-2 px-2 border border-contrast-500 text-sm rounded-md placeholder:text-contrast-500 focus:outline-contrast-500 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isError}
+            value={name}
+            onChange={(e) => setName(e.currentTarget.value)}
           />
         </div>
         {isError ? (
@@ -56,10 +74,11 @@ const Input = () => {
             <Button size="sm">로그인 하기</Button>
           </LoginButton>
         ) : (
-          <Button size="sm">댓글 입력</Button>
+          <Button size="sm" onClick={onSubmit} disabled={!content || isPosting}>
+            {isPosting ? "댓글 등록중" : "댓글 입력"}
+          </Button>
         )}
       </div>
-      <Content />
     </div>
   );
 };
@@ -94,23 +113,28 @@ const LoginButton = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const comments = [
-  { id: 1, name: "gugu", content: "안녕하세요!" },
-  { id: 2, name: "", content: "안녕하세요!" },
-  { id: 3, name: "kuku", content: "안녕하세요!" },
-];
+const Content = ({ pageId }: CommonProps) => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["comment", pageId],
+    queryFn: getComments(pageId),
+  });
 
-const Content = () => {
   return (
-    <div className="divide-y divide-dashed border-y border-y-contrast-500 mt-4">
-      {comments.map(({ id, name, content }) => (
-        <div key={id} className="py-2 px-2 flex items-start gap-2">
-          <h3 className="w-24 text-contrast-500 text-ellipsis">
-            {name || "익명"}
-          </h3>
-          <div className="min-h-[48px]">{content}</div>
+    <div className="divide-y divide-dashed divide-contrast-500 border-y border-y-contrast-500 mt-4 min-h-[100px]">
+      {data && data.comments.length !== 0 ? (
+        data.comments.map(({ commentId, name, content }) => (
+          <div key={commentId} className="py-2 px-2 flex items-start gap-2">
+            <h3 className="w-24 text-contrast-500 truncate">
+              {name || "익명"}
+            </h3>
+            <div className="min-h-[48px]">{content}</div>
+          </div>
+        ))
+      ) : (
+        <div className="flex items-center justify-center h-[100px] text-lg text-contrast-500">
+          {isLoading ? "로딩중" : "댓글이 없습니다!"}
         </div>
-      ))}
+      )}
     </div>
   );
 };

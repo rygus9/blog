@@ -31,7 +31,7 @@ const Page = async ({
           <BlockRenderer block={block} />
         ))}
       </div>
-      <Comment />
+      <Comment pageId={slug} />
     </div>
   );
 };
